@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="" layout:decorate="~{fragments/template}">
+
+<head>
+<title th:text="#{menu.viewReservation}"></title>
+</head>
+<body>
+	<div layout:fragment="breadcrumb">
+		<a th:href="@{/}" class="breadcrumb-item nav-link"><i
+			class="icon-home2 mr-2"></i> Home</a> <a class="breadcrumb-item nav-link"
+			th:text="#{menu.viewReservation}"></a>
+	</div>
+	<div layout:fragment="content">
+		<!---- Component List View ------------------------------------>
+		<div class="card" id="listView">		
+			<div class="card-header header-elements-inline">
+				<h3 class="card-title" th:text="#{menu.viewReservation}"></h3>
+				<div class="header-elements">
+					<div class="list-icons"></div>
+				</div>
+			</div>		
+			<div class="card-body">
+				<div class="table-responsive">
+					<table id="bookingTable" class="table table-bordered table-hover denseTable">
+						<thead>
+							<tr>
+								<th>Staff Number</th>
+								<th>Name</th>
+								<th>Contact Email</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="booking in bookingList" :key="booking.timeslotId">
+								<td>{{booking.staffNumber}}</td>
+								<td>{{booking.staffName}}</td>
+								<td><a v-bind:href="'mailto:'+booking.emailAddress">{{booking.emailAddress}}</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="card-footer">
+				<button type="button" class="btn btn-success" id="generateReport" @click="downloadReport($event)">
+					<i class="fas fa-download"></i> Download Full Report
+				</button>	
+				<button type="button" class="btn btn-info"  @click="refreshData">
+					<i class="fas fa-sync"></i> Refresh
+				</button>	
+			</div>			
+		</div>
+	</div>
+
+	<script layout:fragment="script" th:inline="javascript">
+		var dateFormat = /*[[${@parameters.getDateFormat()}]]*/ "";
+		var currencyFormat = /*[[${@parameters.getJsCurrencyFormat()}]]*/ "";
+
+		const { createApp } = Vue;
+		
+		createApp({
+		  // Vue 3 requires data to be a function
+		  data() {
+		    return {
+		      bookingTable: null,
+		      bookingList: []
+		    };
+		  },
+		
+		  methods: {
+		    async refreshData() {
+		      // block the table, destroy any old DataTable
+		      $("#bookingTable").block();
+		
+		      try {
+		        const res = await $.ajax({
+		          type: "POST",
+		          url: /*[[@{/main/ajax/getBookingList}]]*/ "",
+		          dataType: "json"
+		        });
+		        this.bookingList = res.result;
+		        this.$nextTick(() => {
+					  this.bookingTable?.destroy();
+					  this.bookingTable = $('#bookingTable').DataTable({
+					    paging:   true,
+					    ordering: true,
+					    info:     true,
+					    order:[1,"asc"]
+					  });
+					  $("#bookingTable").unblock();
+					});
+		      } catch (e) {
+		        new Noty({ text: /*[[#{global.ajax.error}]]*/ "", type: "error" }).show();
+		      }
+		    },
+		
+		    async downloadReport(event) {
+		      const param = { reportName: "sampleReservationReport" };
+		      const btn = event.currentTarget;
+		      const originalHtml = btn.innerHTML;
+		      btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Generating...`
+		      btn.disabled = true;
+	      	$.ajax({
+	      	      type: "POST",
+	      	      url: "report/downloadReport",
+	      	      data: { reportParam: JSON.stringify(param) },
+	      	      xhrFields: { responseType: "blob" },    // tell jQuery we want a Blob
+	      	      success: (blob, textStatus, xhr) => {
+	      	        // parse filename from headers
+	      	        let filename = "";
+	      	        const disp = xhr.getResponseHeader("Content-Disposition") || "";
+	      	        const matches =
+	      	          /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(disp);
+	      	        if (matches && matches[1]) {
+	      	          filename = matches[1].replace(/['"]/g, "");
+	      	        }
+		
+	      	        // IE fallback
+	      	        if (window.navigator && window.navigator.msSaveBlob) {
+	      	          window.navigator.msSaveBlob(blob, filename);
+	      	        } else {
+	      	          // create download link
+	      	          const url = URL.createObjectURL(blob);
+	      	          if (filename) {
+	      	            const a = document.createElement("a");
+	      	            a.href = url;
+	      	            a.download = filename;
+	      	            document.body.appendChild(a);
+	      	            a.click();
+	      	            document.body.removeChild(a);
+	      	          } else {
+	      	            window.location.href = url;
+	      	          }
+	      	          setTimeout(() => URL.revokeObjectURL(url), 100);
+	      	        }
+		
+	      	        new Noty({
+	      	          text: "Report generated successfully",
+	      	          type: "success"
+	      	        }).show();
+	      	      },
+	      	      error: () => {
+	      	        new Noty({
+	      	          text: "Cannot download report. Please refresh and try again",
+	      	          type: "error"
+	      	        }).show();
+	      	      },
+	      	      complete: () => {
+	      	        // 4) restore the button
+	      	        btn.innerHTML = originalHtml;
+	      	        btn.disabled = false;
+	      	      }
+	      	    });
+		      }
+		    
+		    
+		  },
+		
+		  watch: {
+
+		  },
+		
+		  beforeMount() {
+		  },
+		
+          mounted: function() {
+            this.refreshData();
+		  },
+		
+		  updated() {
+
+		  }
+		})
+		.mount('#listView');
+
+	</script>
+</body>
+
+</html>

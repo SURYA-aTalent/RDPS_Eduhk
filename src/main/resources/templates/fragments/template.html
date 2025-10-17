@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+<head>
+	<meta charset="utf-8">
+	<th:block th:if="${systemEnv == 'DEVELOPMENT'}">
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=XijJbuCZ90HKaj6XHELI-g&gtm_preview=env-5&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NZF97PT');</script>
+		<!-- End Google Tag Manager -->
+	</th:block>	
+	
+	<th:block th:if="${systemEnv == 'UAT'}">
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=Yms5oFXXHFMN9mLrcqjrTA&gtm_preview=env-7&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NZF97PT');</script>
+		<!-- End Google Tag Manager -->
+	</th:block>		
+	
+	<th:block th:if="${systemEnv == ''}">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=ZUQDGKXjba0cnodmoCjOtg&gtm_preview=env-2&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NZF97PT');</script>
+<!-- End Google Tag Manager -->
+	</th:block>		
+	
+	<script type="text/javascript">
+		const ua = window.navigator.userAgent; //Check the userAgent property of the window.navigator object
+	    const msie = ua.indexOf('MSIE '); // IE 10 or older
+	    const trident = ua.indexOf('Trident/'); //IE 11
+	    if (msie > 0 || trident > 0) {
+	    	alert("The use of Internet Explorer (IE) is not supported.\nPlease use Google Chrome, Microsoft EDGE, Firefox or Safari for browsing.");
+	    	window.top.location = "https://portal.eduhk.hk/";
+	    }
+	</script>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />	
+	<title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE" th:text="${systemName}"></title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link th:href="@{/resources/css/icons/fontawesome/styles.min.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/resources/css/icons/icomoon/styles.min.css}" rel="stylesheet" type="text/css">
+	<!-- bootstrap current version v5.3.7  -->
+	<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/resources/css/bootstrap_limitless.min.css}" rel="stylesheet" type="text/css">
+	
+	<link th:href="@{/resources/css/layout.min.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/resources/css/components.min.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/resources/css/colors.min.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/resources/css/custom.css}" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<!-- jquery current version v3.7.1  -->
+	<script th:src="@{/resources/js/main/jquery.min.js}"></script>
+	<!-- bootstrap current version v5.3.7  -->
+	<script th:src="@{/resources/js/main/bootstrap.bundle.min.js}"></script>
+	<!-- blockui current version v2.7.0  -->
+	<script th:src="@{/resources/js/plugins/loaders/blockui.min.js}"></script>
+<!-- 	<script th:src="@{/resources/js/plugins/ui/ripple.min.js}"></script> -->
+	<!-- /core JS files -->
+
+	<!-- Plugin JS files -->
+	<!-- vuejs current version v3.5.18  -->
+	<script th:src="@{${vuejsPath}}"></script>
+	<!-- bootbox current version v6.0.4  -->
+	<script th:src="@{/resources/js/plugins/bootbox/bootbox.min.js}"></script>
+	<!-- pnotify current version 5.2.0 -->
+	<script th:src="@{/resources/js/plugins/notifications/pnotify.min.js}"></script>
+	<!-- noty current version 3.1.4  -->
+	<script th:src="@{/resources/js/plugins/notifications/noty.min.js}"></script>
+	<!-- sweet_alert current version 11.22.2  -->
+	<script th:src="@{/resources/js/plugins/notifications/sweet_alert.min.js}"></script>
+	<!-- datatables current version 1.13.6  -->
+	<script th:src="@{/resources/js/plugins/tables/datatables/datatables.min.js}"></script>
+	<!-- responsive.dataTables.min current version latest 3.0.5  -->
+	<script th:src="@{/resources/js/plugins/tables/datatables/extensions/responsive.min.js}"></script>
+	<!-- moment current version 2.27.0  -->
+	<script th:src="@{/resources/js/plugins/ui/moment/moment.min.js}"></script>
+	<!-- pickadate current version 3.6.4  -->
+	<script th:src="@{/resources/js/plugins/pickers/pickadate/picker.js}"></script>
+	<script th:src="@{/resources/js/plugins/pickers/pickadate/picker.date.js}"></script>
+	<script th:src="@{/resources/js/plugins/pickers/pickadate/picker.time.js}"></script>
+	<!-- daterangepicker current version 3.1.0  -->
+	<script th:src="@{/resources/js/plugins/pickers/daterangepicker.js}"></script>
+	<!-- daterangepicker current version 1.21.0  -->
+	<script th:src="@{/resources/js/plugins/forms/validation/validate.min.js}"></script>
+	<!-- dropzone current version 5.9.3  -->
+	<script th:src="@{/resources/js/plugins/uploaders/dropzone.min.js}"></script>
+	<!-- c3 current version 0.7.20  -->
+	<script th:src="@{/resources/js/plugins/visualization/c3/c3.min.js}"></script>
+	<!-- d3 current version 7.9.0  -->
+	<script th:src="@{/resources/js/plugins/visualization/d3/d3.min.js}"></script>
+	<!-- lodash current version 4.17.21  -->
+	<script th:src="@{/resources/js/plugins/utils/lodash.min.js}"></script>
+	<!-- select2 current version 4.0.13  -->
+	<script th:src="@{/resources/js/plugins/forms/selects/select2.min.js}"></script>
+	<script th:src="@{/resources/js/plugins/forms/styling/uniform.min.js}"></script>
+	<script th:src="@{/resources/js/plugins/forms/styling/switchery.min.js}"></script>
+	<!-- switch current version 3.3.4  -->
+	<script th:src="@{/resources/js/plugins/forms/styling/switch.min.js}"></script>
+<!-- 	<script th:src="@{/resources/js/plugins/forms/inputs/alpaca/alpaca.min.js}"></script> -->
+	<!-- numeral.min.js current version 2.0.6  -->
+	<script th:src="@{/resources/js/plugins/numeral/numeral.min.js}"></script>
+	<!-- FileSaver.min.js current version 2.0.5  -->
+	<script th:src="@{/resources/js/plugins/FileSaver/FileSaver.min.js}"></script>
+	<!-- ckeditor.js current version 46.0.0  -->
+	<script th:src="@{/resources/js/plugins/editors/ckeditor/ckeditor.js}"></script>
+	<script th:src="@{/resources/js/EditableDatatable.js}"></script>
+	
+<!-- 	<script th:src="@{resources/js/init/init_sweetalert.js}"></script> -->
+
+	<!-- Theme JS files -->
+	<script th:src="@{/resources/js/app.js}"></script>
+	<script th:src="@{/resources/js/custom.js}"></script>
+	<script th:src="@{/resources/js/script.js}"></script>
+	<!-- /theme JS files -->
+
+</head>
+
+<body class="navbar-top">
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-expand-md navbar-light fixed-top">
+
+		<!-- Header with logos -->
+<!-- 		<div class="navbar-header d-none d-md-flex align-items-md-center"> -->
+<!-- 			<div class="navbar-brand navbar-brand-md p-0"> -->
+<!-- 				<a th:href="@{/}"><img style="height:3rem" th:src="@{/resources/images/logo_title.png}" alt=""></a> -->
+<!-- 			</div> -->
+			
+<!-- 			<div class="navbar-brand navbar-brand-xs"> -->
+<!-- 				<a th:href="@{/}" th:text="${systemName}"></a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		<!-- /header with logos -->
+	
+
+		<!-- Mobile controls -->
+		<div class="d-flex flex-1 d-md-none">
+			<div class="navbar-toggler mr-auto p-0">
+				<a class="nav-link" th:href="@{/}" th:text="${systemName}"></a>
+			</div>	
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+				<i class="icon-tree5"></i>
+			</button>
+
+			<button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+				<i class="icon-paragraph-justify3"></i>
+			</button>
+		</div>
+		<!-- /mobile controls -->
+
+
+		<!-- Navbar content -->
+		<div class="collapse navbar-collapse" id="navbar-mobile">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a href="#" class="nav-link sidebar-control sidebar-main-toggle d-none d-md-block">
+						<i class="icon-paragraph-justify3"></i>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/}" th:text="${systemName}"></a>
+				</li>
+
+<!-- 				<li sec:authorize="hasAnyRole('STAFF')" class="nav-item dropdown">  -->
+<!-- 					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">Menu</a> -->
+
+<!-- 					<div class="dropdown-menu"> -->
+<!-- 						<a href="#" class="dropdown-item">Action</a> -->
+<!-- 						<a href="#" class="dropdown-item">Another action</a> -->
+<!-- 						<a href="#" class="dropdown-item">One more action</a> -->
+<!-- 						<div class="dropdown-divider"></div> -->
+<!-- 						<a href="#" class="dropdown-item">Separate action</a> -->
+<!-- 					</div> -->
+<!-- 				</li> -->
+			</ul>
+
+			<ul class="navbar-nav ms-auto" >
+				<li class="nav-item" sec:authorize="hasRole('ROLE_STAFF')">
+					<form id="logoutForm" th:action="@{/logout}" method="POST">
+						<a href="#" class="nav-link" onClick="logoutForm.submit();">
+							<i class="icon-switch2"></i>   Logout
+						</a>
+					</form>
+				</li>
+				<li class="nav-item dropdown dropdown-user" sec:authorize="hasRole('ROLE_STAFF')">
+					<a href="#" class="nav-link d-flex align-items-center" data-toggle="dropdown">
+						<i class="icon-user"></i>  <span th:text="${#authentication.principal.user.name}"></span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a th:href="@{/}"><img style="height:3rem" th:src="@{/resources/images/logo_title.png}" alt=""></a>
+				</li>
+			</ul>
+		</div>
+		<!-- /navbar content -->
+
+	</div>
+	<!-- /main navbar -->
+	
+	<!-- Page header -->
+	<div class="page-header">
+		<div class="breadcrumb-line bg-info-800 header-elements-md-inline m-0 d-none d-md-block">
+			<div class="d-flex">
+				<div class="breadcrumb" layout:fragment="breadcrumb">
+					<a th:href="@{/}" class="breadcrumb-item nav-link"><i class="icon-home2 mr-2"></i> Home</a>
+				</div>
+				<a href="#" class="header-elements-toggle text-default d-md-none nav-link"><i class="icon-more"></i></a>
+			</div>
+		</div>
+	</div>
+	<!-- /page header -->
+
+	<!-- Page content -->
+	<div class="page-content">
+
+		<!-- Main sidebar -->
+		<div class="sidebar sidebar-dark bg-slate-600 sidebar-main sidebar-expand-md">
+
+			<!-- Sidebar mobile toggler -->
+			<div class="sidebar-mobile-toggler text-center">
+				<a href="#" class="sidebar-mobile-main-toggle">
+					<i class="icon-arrow-left8"></i>
+				</a>
+				Main sidebar
+				<a href="#" class="sidebar-mobile-expand">
+					<i class="icon-screen-full"></i>
+					<i class="icon-screen-normal"></i>
+				</a>
+			</div>
+			<!-- /sidebar mobile toggler -->
+
+
+			<!-- Sidebar content -->
+			<div class="sidebar-content">
+				<div class="card card-sidebar-mobile">
+				
+					<!-- User menu -->
+					<div class="sidebar-user" sec:authorize="hasAnyRole('ROLE_STAFF')">
+						<div class="card-body">
+							<div class="media">
+								<div class="mr-3">
+									<a href="#"><img th:src="@{/resources/images/logo.png}" width="38" height="38" class="rounded-circle" alt=""></a>
+								</div>
+								<div class="media-body">
+									<div class="media-title font-weight-semibold">Welcome</div>
+									<div class="font-size-xs opacity-50">
+										<span th:text="${#authentication.principal.user.name}"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<th:block>
+						<div th:insert="~{fragments/nav :: Main}"></div>
+					</th:block>
+					<!-- /Main navigation -->
+
+				</div>
+			</div>
+			<!-- /sidebar content -->
+			
+		</div>
+		<!-- /main sidebar -->
+
+
+		<!-- Main content -->
+		<div class="content-wrapper">
+
+			<!-- Content area -->
+			<div class="content" layout:fragment="content">
+
+			</div>
+			<!-- /content area -->
+
+		</div>
+		<!-- /main content -->
+
+	</div>
+	<!-- /page content -->
+
+
+	<!-- Footer -->
+	<div class="navbar navbar-expand navbar-light small">
+		<div class="navbar-collapse collapse" id="navbar-footer">
+			<span class="navbar-text pt-2 pb-2">
+				&copy; 2025. <a th:href="@{/}" th:text="${systemName}" class="text-decoration-none"></a> by <a href="https://www.eduhk.hk/ocio/" class="text-decoration-none" target="_blank">OCIO</a> (<span th:text="${@parameters.version}"></span>)
+			</span>
+			<ul class="navbar-nav ml-lg-auto">
+				<li>
+					<span class="navbar-text pt-2 pb-2">
+						<span class="text-danger font-weight-bold" th:text="${systemEnv}"></span>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /footer -->
+
+	<script th:inline="javascript" layout:fragment="script">
+
+	</script>
+		
+	
+</body>
+</html>

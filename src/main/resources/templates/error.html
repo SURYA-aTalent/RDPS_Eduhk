@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="" layout:decorate="~{fragments/template}">
+
+<head>
+<title>Error</title>
+</head>
+<body>
+
+
+	<div class="container" layout:fragment="content">
+
+		<div class="card">
+			<div class="card-header header-elements-inline">
+				<h5 class="card-title">[[${systemName}]] - Issue Occured</h5>
+
+			</div>
+
+			<div class="card-body">
+				<div class="alert alert-danger alert-styled-left">
+					<span class="font-weight-semibold">Error!</span> Please reload and try again. If problem exists, please contact OCIO for assistant.
+				</div>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<tbody>
+							<tr>
+								<td>Issue found:</td>
+								<td>[[${status}]] - [[${error}]]</td>
+							</tr>
+							<tr>
+								<td>Time:</td>
+								<td th:text="${#calendars.format(#calendars.createNow(), 'dd/MM/yyyy HH:mm:ss')}"></td>
+							</tr>
+							<tr>
+								<td>Login ID:</td>
+								<td sec:authentication="name"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<div th:fragment="Main">
+		<!-- Main navigation -->
+		<div class="card-body p-0" th:with="currentPath=${currentURI},context=@{/}, contextRoot=${#strings.substring(context, 0, #strings.length(context)-1)}">
+			<ul class="nav nav-sidebar" data-nav-type="accordion">
+				<!-- Main -->
+				<li class="nav-item-header mt-0">
+					<div class="text-uppercase line-height-xs">Menu</div> <i class="icon-menu" title="Main"></i>
+				</li>
+				<li th:replace="~{fragments/nav :: menuItem('/makeReservation', #{menu.makeReservation}, 'icon-pencil')}"></li>
+				<li th:replace="~{fragments/nav :: menuItem('/viewReservation', #{menu.viewReservation}, 'icon-table')}"></li>
+				<li th:replace="~{fragments/nav :: menuItem('/import/data', #{menu.dataImport}, 'fas fa-cloud-upload-alt')}"></li>
+				<li th:replace="~{fragments/nav :: menuItem('/admin/user-sync', #{menu.userSync}, 'fas fa-users-cog')}"></li>
+				<li th:replace="~{fragments/nav :: menuItem('/downloadLogs', #{menu.downloadLogs}, 'fas icon-download')}"></li>
+				<li th:replace="~{fragments/nav :: menuItem('/setUserProfile', #{menu.setUserProfile}, 'fas fa-address-card')}"></li>
+			</ul>
+		</div>
+		<!-- /main navigation -->
+	</div>
+	<ol>
+		<li class="nav-item nav-item-submenu" th:fragment="subMenu(path, title, subMenuItem, subMenuItemLink)">
+			<a href="#" class="nav-link" th:text="${title}"></a>
+			<ul class="nav nav-group-sub">
+				<li class="nav-item" th:each="item, stat: ${subMenuItem}">
+					<a th:with="path=${subMenuItemLink[stat.index]}, title=${item}, cPath=${contextPath + path}" 
+						th:href="@{${path}}" class="nav-link"
+						th:classappend="${cPath.equals(currentURI) ? 'active' : ''}" 
+						th:text="${title}">
+					</a>
+				</li>
+			</ul>
+		</li>	
+	
+		<li class="nav-item" th:fragment="menuItem(path, title, iconClass)">
+			<a th:with="path=${path}, title=${title}, iconClass=${iconClass}, cPath=${contextPath + path}" 
+				th:sec:authorize-url="${path}" 
+				th:href="@{${path}}" 
+				th:classappend="${cPath.equals(currentURI) ? 'active' : ''}" 
+				class="nav-link" href="#">
+				<i th:if="${iconClass != null}" th:class="${iconClass}"></i>
+				<span th:text="${title}"></span>
+			</a>
+		</li>
+	</ol>	
+</body>
+</html>

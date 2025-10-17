@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      layout:decorate="~{fragments/template}">
+
+<!-- File Path: src/main/resources/templates/importErrors.html -->
+<!-- Purpose: View detailed error logs from import operation -->
+
+<head>
+<title>Import Error Details</title>
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<!-- Import Error Details Card -->
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title mb-4">Import Error Details</h3>
+				<h6 class="card-subtitle">Detailed information about errors during import</h6>
+			</div>
+
+			<div class="card-body">
+
+				<!-- Back Button -->
+				<div class="row mb-3">
+					<div class="col-md-12">
+						<a href="/import/data" class="btn btn-secondary">
+							<i class="fa fa-arrow-left"></i> Back to Import Dashboard
+						</a>
+					</div>
+				</div>
+
+				<!-- Error Details Table -->
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th>Timestamp</th>
+									<th>Candidate ID</th>
+									<th>Requisition #</th>
+									<th>Error Type</th>
+									<th>Field Name</th>
+									<th>Error Message</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- TODO: Loop through error details from model -->
+								<!-- TODO: th:each="error : ${errorDetails}" -->
+								<tr>
+									<td colspan="6" class="text-center">
+										<em>No error details available.</em>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script layout:fragment="script" th:inline="javascript">
+		$(document).ready(function() {
+			// TODO: Initialize DataTable for pagination/filtering
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      layout:decorate="~{fragments/template}">
+
+<!-- File Path: src/main/resources/templates/importValidationErrors.html -->
+<!-- Purpose: Display validation errors that occurred during candidate import -->
+
+<head>
+<title>Import Validation Errors</title>
+<style>
+.error-resolved {
+    background-color: #d4edda;
+}
+.error-unresolved {
+    background-color: #f8d7da;
+}
+.error-type-badge {
+    font-size: 0.85em;
+    color: #fff !important;
+}
+.badge {
+    color: #fff !important;
+}
+.badge-danger {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+.badge-warning {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+.badge-info {
+    background-color: #17a2b8 !important;
+    color: #fff !important;
+}
+.badge-secondary {
+    background-color: #6c757d !important;
+    color: #fff !important;
+}
+.badge-success {
+    background-color: #28a745 !important;
+    color: #fff !important;
+}
+</style>
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<!-- Validation Errors Card -->
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title mb-2">Import Validation Errors</h3>
+				<h6 class="card-subtitle">Candidates that failed pre-import validation</h6>
+			</div>
+
+			<div class="card-body">
+
+				<!-- Error Summary Section -->
+				<div class="row mb-4">
+					<div class="col-md-12">
+						<div class="alert alert-warning" role="alert">
+							<h5><i class="fa fa-exclamation-triangle"></i> Validation Error Summary</h5>
+							<p>
+								<strong>Unresolved Errors:</strong> <span class="badge badge-danger" th:text="${unresolvedCount}">0</span><br/>
+								<strong>Total Errors (last <span th:text="${days}">7</span> days):</strong>
+								<span th:text="${#lists.size(validationErrors)}">0</span>
+							</p>
+							<p class="mb-0">
+								<em>These candidates have missing or invalid required fields and cannot be imported
+								until the issues are resolved in the source system (TalentLink).</em>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Action Buttons -->
+				<div class="row mb-3">
+					<div class="col-md-12">
+						<a th:href="@{/import/data}" class="btn btn-secondary">
+							<i class="fa fa-arrow-left"></i> Back to Import Dashboard
+						</a>
+						<button type="button" class="btn btn-info" id="btnRefreshErrors">
+							<i class="fa fa-refresh"></i> Refresh
+						</button>
+					</div>
+				</div>
+
+				<!-- Error Message Display (if any) -->
+				<div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+					<strong>Error:</strong> <span th:text="${errorMessage}"></span>
+				</div>
+
+				<!-- Validation Errors Table -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped table-hover" id="validationErrorsTable">
+								<thead class="thead-dark">
+									<tr>
+										<th>Error ID</th>
+										<th>Candidate ID</th>
+										<th>Req Number</th>
+										<th>Error Type</th>
+										<th>Field Name</th>
+										<th>Error Message</th>
+										<th>Batch ID</th>
+										<th>Created Date</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:if="${#lists.isEmpty(validationErrors)}">
+										<td colspan="9" class="text-center">
+											<em>No validation errors found for the specified period.</em>
+										</td>
+									</tr>
+									<tr th:each="error : ${validationErrors}"
+									    th:classappend="${error.resolved == 'Y'} ? 'error-resolved' : 'error-unresolved'">
+										<td th:text="${error.errorId}">1</td>
+										<td th:text="${error.candidateId}">100</td>
+										<td th:text="${error.reqNumber}">REQ001</td>
+										<td>
+											<span class="badge error-type-badge"
+											      th:classappend="${error.errorType == 'REQUIRED_FIELD'} ? 'badge-danger' :
+											                      (${error.errorType == 'FIELD_LENGTH'} ? 'badge-warning' :
+											                      (${error.errorType == 'INVALID_FORMAT'} ? 'badge-info' : 'badge-secondary'))"
+											      th:text="${error.errorType}">REQUIRED_FIELD</span>
+										</td>
+										<td><strong th:text="${error.fieldName}">DISTRICT</strong></td>
+										<td th:text="${error.errorMessage}">District is required</td>
+										<td th:text="${error.importBatchId}">BATCH_20231017_120000</td>
+										<td th:text="${#dates.format(error.creationDate, 'yyyy-MM-dd HH:mm:ss')}">2023-10-17 12:00:00</td>
+										<td>
+											<span th:if="${error.resolved == 'Y'}" class="badge badge-success">Resolved</span>
+											<span th:unless="${error.resolved == 'Y'}" class="badge badge-danger">Unresolved</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<!-- Help Section -->
+				<div class="row mt-4">
+					<div class="col-md-12">
+						<div class="alert alert-info" role="alert">
+							<h5><i class="fa fa-info-circle"></i> How to Resolve Validation Errors</h5>
+							<ol>
+								<li><strong>REQUIRED_FIELD errors:</strong> The field is required but missing in TalentLink.
+								    Update the candidate record in TalentLink to include the required field.</li>
+								<li><strong>FIELD_LENGTH errors:</strong> The field value exceeds the maximum allowed length.
+								    Shorten the field value in TalentLink.</li>
+								<li><strong>INVALID_FORMAT errors:</strong> The field value format is invalid (e.g., email format).
+								    Correct the format in TalentLink.</li>
+								<li>After fixing the issue in TalentLink, run the import process again.
+								    The system will automatically re-validate the candidate.</li>
+							</ol>
+							<p class="mb-0">
+								<strong>Common Issues:</strong><br/>
+								- <strong>DISTRICT is required:</strong> The district field is mandatory in RDPS.
+								  Ensure the candidate has a valid district/location assigned in TalentLink.
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div> <!-- card-body -->
+		</div> <!-- card -->
+
+	</div> <!-- layout:fragment -->
+
+	<!-- JavaScript Section -->
+	<th:block layout:fragment="script">
+		<script th:src="@{/js/importValidationErrors.js}"></script>
+	</th:block>
+
+</body>
+</html>

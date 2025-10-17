@@ -1,0 +1,62 @@
+-- TalentLink SOAP API Configuration Parameters
+-- Insert these parameters into RDPS_PARAMETER table
+
+-- SOAP Endpoint URL (default to TalentLink production endpoint)
+INSERT INTO RDPS.RDPS_PARAMETER (PARAMETER_NAME, PARAMETER_VALUE, DESCRIPTION, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES (
+    'TALENTLINK_USER_SOAP_URL',
+    'https://api3.lumesse-talenthub.com/User/SOAP/User',
+    'TalentLink User SOAP Web Service endpoint URL',
+    'Y',
+    SYSDATE,
+    USER
+);
+
+-- Note: Use the same credentials as REST API
+-- TALENTLINK_USERNAME, TALENTLINK_PASSWORD, and TALENTLINK_API_KEY should already exist
+-- If not, add them:
+
+/*
+INSERT INTO RDPS.RDPS_PARAMETER (PARAMETER_NAME, PARAMETER_VALUE, DESCRIPTION, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES (
+    'TALENTLINK_USERNAME',
+    'YOUR_TENANT:YOUR_USERNAME:BO',
+    'TalentLink API username for authentication',
+    'Y',
+    SYSDATE,
+    USER
+);
+
+INSERT INTO RDPS.RDPS_PARAMETER (PARAMETER_NAME, PARAMETER_VALUE, DESCRIPTION, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES (
+    'TALENTLINK_PASSWORD',
+    'your_password_here',
+    'TalentLink API password for authentication',
+    'Y',
+    SYSDATE,
+    USER
+);
+
+INSERT INTO RDPS.RDPS_PARAMETER (PARAMETER_NAME, PARAMETER_VALUE, DESCRIPTION, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES (
+    'TALENTLINK_API_KEY',
+    'your-api-key-here',
+    'TalentLink API key for authentication',
+    'Y',
+    SYSDATE,
+    USER
+);
+*/
+
+COMMIT;
+
+-- Verify the parameters
+SELECT PARAMETER_NAME, PARAMETER_VALUE, DESCRIPTION
+FROM RDPS.RDPS_PARAMETER
+WHERE PARAMETER_NAME IN (
+    'TALENTLINK_USER_SOAP_URL',
+    'TALENTLINK_USERNAME',
+    'TALENTLINK_PASSWORD',
+    'TALENTLINK_API_KEY'
+)
+ORDER BY PARAMETER_NAME;

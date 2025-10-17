@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="" layout:decorate="~{fragments/template}">
+
+<head>
+<title th:text="#{menu.makeReservation}"></title>
+</head>
+<body>
+	<div layout:fragment="breadcrumb">
+		<a th:href="@{/}" class="breadcrumb-item nav-link"><i
+			class="icon-home2 mr-2"></i> Home</a> <a class="breadcrumb-item nav-link"
+			th:text="#{menu.makeReservation}"></a>
+	</div>
+	<div layout:fragment="content">
+		<!---- Component List View ------------------------------------>
+		<div class="card" id="mainContent">		
+			<div class="card-header header-elements-inline">
+				<h3 class="card-title" th:text="#{menu.makeReservation}"></h3>
+				<div class="header-elements">
+					<div class="list-icons"></div>
+				</div>
+			</div>		
+			<div class="card-body">
+				<p>
+					<span class="mandatory">Fields with * are mandatory</span>
+				</p>
+				<form class="congparkForm">
+					<div class="form-group">
+						<label for="studentNumber">Staff Number<span class="mandatory">&nbsp;*</span> :</label>
+    					<input type="text" class="form-control" placeholder="Enter your Staff Number" id="staffNumber" v-model="booking.staffNumber">
+    				</div>
+					<div class="form-group">
+						<label for="studentName">Staff Name<span class="mandatory">&nbsp;*</span> :</label>
+    					<input type="text" class="form-control" placeholder="Enter your Staff Name" id="staffName" v-model="booking.staffName">
+    				</div>
+    				<div class="form-group">
+						<label for="emailAddress">Email Address<span class="mandatory">&nbsp;*</span> :</label>
+    					<input type="text" class="form-control" placeholder="Enter your email address" id="emailAddress" v-model="booking.emailAddress">
+    				</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<button type="button" class="btn btn-success" @click="saveData">
+					<i class="fas fa-save"></i> Submit Record
+				</button>	
+				<button type="button" class="btn btn-warning" @click="clearInput">
+					<i class="fas fa-times"></i> Clear Input
+				</button>	
+			</div>			
+		</div>
+	</div>
+
+	<script layout:fragment="script" th:inline="javascript">
+		var dateFormat = /*[[${@parameters.getDateFormat()}]]*/ "";
+		var currencyFormat = /*[[${@parameters.getJsCurrencyFormat()}]]*/ "";
+
+		const { createApp } = Vue;
+		
+		createApp({
+		  // 2) data must be a function that returns your initial state
+		  data() {
+		    return {
+		      booking: {
+		        staffNumber: '',
+		        staffName: '',
+		        emailAddress: ''
+		      }
+		    };
+		  },
+		
+		  methods: {
+		    clearInput() {
+		      // reset the booking object back to its initial blank state
+		      this.booking = {
+		        staffNumber: '',
+		        staffName: '',
+		        emailAddress: ''
+		      };
+		    },
+		
+		    saveData() {
+		      bootbox.confirm('Confirm submitting your booking?', async (ok) => {
+		        if (!ok) return;
+		
+		        // block the entire card while we save
+		        $('#mainContent').block();
+		
+		        try {
+		          const res = await $.ajax({
+		            type: 'POST',
+		            url: /*[[@{/main/ajax/makeReservation}]]*/ '',
+		            data: { jsonInput: JSON.stringify(this.booking) },
+		            dataType: 'json'
+		          });
+		
+		          if (res.notyAlertLevel === 'success') {
+		            // on success, redirect via a POST form (to preserve CSRF)
+		            const csrfName  = /*[[${_csrf.parameterName}]]*/ '';
+		            const csrfValue = /*[[${_csrf.token}]]*/ '';
+		
+		            const form = $('<form action="viewReservation" method="GET">');
+		            $('body').append(form);
+		            form.submit();
+		          } else {
+		            new Noty({
+		              text: res.message,
+		              type: res.notyAlertLevel
+		            }).show();
+		          }
+		        } catch (err) {
+		          new Noty({
+		            text: /*[[#{global.ajax.error}]]*/ '',
+		            type: 'error'
+		          }).show();
+		        } finally {
+		          $('#mainContent').unblock();
+		        }
+		      });
+		    }
+		  },
+		
+		  // 3) Fetch your timeslots just before mounting
+		  beforeMount() {
+		  }
+		
+		  // you don’t need mounted/updated here unless you’re integrating a plugin (DataTables, etc.)
+		})
+		// 4) mount onto the same element you used for `el: "#mainContent"`
+		.mount('#mainContent');
+
+	</script>
+</body>
+
+</html>

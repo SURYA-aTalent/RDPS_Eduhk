@@ -1,0 +1,142 @@
+# ============================================================================
+# RDPS Application Configuration
+# ============================================================================
+# Copy this file to src/main/resources/application.properties and update values
+# ============================================================================
+
+# ============================================================================
+# Server Configuration
+# ============================================================================
+server.port=8080
+server.servlet.context-path=/RDPS
+
+# ============================================================================
+# Database Configuration
+# ============================================================================
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/FREEPDB1
+spring.datasource.username=RDPS
+spring.datasource.password=rdps_password123
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+# Connection Pool Configuration
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=5
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.idle-timeout=600000
+spring.datasource.hikari.max-lifetime=1800000
+
+# ============================================================================
+# JPA/Hibernate Configuration
+# ============================================================================
+spring.jpa.database-platform=org.hibernate.dialect.Oracle12cDialect
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.jdbc.batch_size=20
+spring.jpa.properties.hibernate.order_inserts=true
+spring.jpa.properties.hibernate.order_updates=true
+
+# ============================================================================
+# Thymeleaf Configuration
+# ============================================================================
+spring.thymeleaf.cache=false
+spring.thymeleaf.enabled=true
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.mode=HTML
+
+# ============================================================================
+# Logging Configuration
+# ============================================================================
+logging.level.root=INFO
+logging.level.eduhk.fhr.web=DEBUG
+logging.level.org.springframework.web=INFO
+logging.level.org.springframework.security=INFO
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+
+# Log file configuration
+logging.file.name=logs/rdps.log
+logging.file.max-size=10MB
+logging.file.max-history=30
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+
+# ============================================================================
+# TalentLink API Configuration
+# ============================================================================
+# Update these values with your TalentLink instance details
+talentlink.api.base-url=https://your-instance.lumessetalentlink.com
+talentlink.api.username=your-api-username
+talentlink.api.password=your-api-password
+talentlink.api.pool-id=your-pool-id
+
+# Import batch size (number of candidates per batch)
+talentlink.import.batch-size=100
+
+# Import retry configuration
+talentlink.import.max-retries=3
+talentlink.import.retry-delay-ms=5000
+
+# ============================================================================
+# Email Configuration (if using)
+# ============================================================================
+spring.mail.host=smtp.your-domain.com
+spring.mail.port=587
+spring.mail.username=your-email@domain.com
+spring.mail.password=your-email-password
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+# Email sender details
+rdps.email.from=noreply@eduhk.hk
+rdps.email.from-name=RDPS System
+
+# ============================================================================
+# Security Configuration
+# ============================================================================
+# Session timeout (in seconds)
+server.servlet.session.timeout=1800
+
+# CSRF protection
+spring.security.csrf.enabled=true
+
+# ============================================================================
+# Application-Specific Configuration
+# ============================================================================
+# System environment (DEVELOPMENT, UAT, PRODUCTION)
+rdps.system.env=DEVELOPMENT
+
+# System name
+rdps.system.name=Recruitment Data Processing System
+
+# Application version
+rdps.version=0.0.1-SNAPSHOT
+
+# ============================================================================
+# Scheduled Jobs Configuration
+# ============================================================================
+# Enable/disable scheduled jobs
+rdps.scheduler.enabled=true
+
+# Import schedule (cron expression: run daily at 2 AM)
+rdps.scheduler.import.cron=0 0 2 * * ?
+
+# Email job schedule (cron expression: run every 15 minutes)
+rdps.scheduler.email.cron=0 */15 * * * ?
+
+# User sync schedule (cron expression: run every 6 hours)
+rdps.scheduler.user-sync.cron=0 0 */6 * * ?
+
+# ============================================================================
+# File Upload Configuration
+# ============================================================================
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=10MB
+
+# ============================================================================
+# Actuator Configuration (for monitoring)
+# ============================================================================
+management.endpoints.web.exposure.include=health,info,metrics
+management.endpoint.health.show-details=when-authorized

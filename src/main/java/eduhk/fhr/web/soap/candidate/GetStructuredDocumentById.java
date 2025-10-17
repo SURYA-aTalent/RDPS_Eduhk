@@ -1,0 +1,62 @@
+
+package eduhk.fhr.web.soap.candidate;
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Java class for getStructuredDocumentById complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="getStructuredDocumentById">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="candidateId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0" form="qualified"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "getStructuredDocumentById", propOrder = {
+    "candidateId"
+})
+public class GetStructuredDocumentById {
+
+    @XmlElement(namespace = "http://ws.mrted.com/")
+    protected Long candidateId;
+
+    /**
+     * Gets the value of the candidateId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    public Long getCandidateId() {
+        return candidateId;
+    }
+
+    /**
+     * Sets the value of the candidateId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setCandidateId(Long value) {
+        this.candidateId = value;
+    }
+
+}

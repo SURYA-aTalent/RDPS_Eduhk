@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="" layout:decorate="~{fragments/template}">
+
+<head>
+<title th:text="#{menu.downloadLogs}"></title>
+</head>
+<body>
+	<div layout:fragment="breadcrumb">
+		<a th:href="@{/}" class="breadcrumb-item nav-link"><i
+			class="icon-home2 mr-2"></i> Home</a> <a class="breadcrumb-item nav-link"
+			th:text="#{menu.downloadLogs}"></a>
+	</div>
+	
+	<div layout:fragment="content">
+		<!---- Component List View ------------------------------------>
+		<div class="card" id="listView">		
+			<div class="card-header header-elements-inline">
+				<h5 class="card-title" th:text="#{menu.downloadLogs}"></h5>
+				<div class="header-elements">
+					<div class="list-icons"></div>
+				</div>
+			</div>		
+			<div class="table-responsive">
+		      <table
+		        id="logTable"
+		        class="table table-bordered table-hover"
+		      >
+		        <thead>
+		          <tr>
+		            <th>Name</th>
+		            <th>Size</th>
+		            <th>Modified</th>
+		            <th>Action</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		          <tr v-if="!logFiles.length">
+		            <td colspan="4" class="text-center">No log files found.</td>
+		          </tr>
+		          <tr v-else v-for="file in logFiles" :key="file.name">
+		            <td>{{ file.name }}</td>
+		            <td>{{ file.size }} KB</td>
+		            <td>{{ file.lastModified }}</td>
+		            <td>
+		              <button
+		                class="btn btn-sm btn-primary"
+		                @click="downloadLog($event, file.name)"
+		              >
+		                Download
+		              </button>
+		            </td>
+		          </tr>
+		          
+		        </tbody>
+		      </table>
+    	    </div>
+		</div>
+	</div>
+
+	<script layout:fragment="script" th:inline="javascript">
+		//Vue.config.devtools = true;
+		const { createApp } = Vue;
+
+	    createApp({
+	      data() {
+	        return {
+	          logTable: null,
+	          logFiles: []
+	        };
+	      },
+	
+	      methods: {
+	        async getLogFiles() {
+	          try {
+	        	$("#logTable").block();
+	            const res = await $.ajax({
+	              type: "POST",
+	              url: /*[[@{/main/ajax/getLogs}]]*/ "",
+	              dataType: "json"
+	            });
+	            if (res.success) {
+	              // Expecting an array of objects:
+	              // [{ name, size, lastModified, ... }, ...]
+	              this.logFiles = res.result;
+	              this.$nextTick(() => {
+					  this.logTable?.destroy();
+					  this.logTable = $('#logTable').DataTable({
+					    paging:   true,
+					    ordering: true,
+					    info:     true,
+					    order:[2,"desc"],
+					    lengthMenu: [
+					        [10, 25, 50, -1],     // page-length values
+					        [10, 25, 50, 'All']   // labels
+					    ]
+					  });
+					  $("#logTable").unblock();
+					});
+	            } else {
+	              new Noty({
+	                text: res.message,
+	                type: "error"
+	              }).show();
+	            }
+	          } catch (err) {
+	            new Noty({
+	              text: "Network error fetching logs",
+	              type: "error"
+	            }).show();
+	            console.error(err);
+	          }
+	        },
+	
+	        async downloadLog(event, filename) {
+	        	const btn = event.currentTarget;
+			    const originalHtml = btn.innerHTML;
+			    btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Generating...`
+			    btn.disabled = true;
+	        	$.ajax({
+	      	      type: "POST",
+	      	      url: "log/downloadLog",
+	      	      data: { fileName: filename },
+	      	      xhrFields: { responseType: "blob" },    // tell jQuery we want a Blob
+	      	      success: (blob, textStatus, xhr) => {
+	      	        // parse filename from headers
+	      	        let filename = "";
+	      	        const disp = xhr.getResponseHeader("Content-Disposition") || "";
+	      	        const matches =
+	      	          /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(disp);
+	      	        if (matches && matches[1]) {
+	      	          filename = matches[1].replace(/['"]/g, "");
+	      	        }
+		
+	      	        // IE fallback
+	      	        if (window.navigator && window.navigator.msSaveBlob) {
+	      	          window.navigator.msSaveBlob(blob, filename);
+	      	        } else {
+	      	          // create download link
+	      	          const url = URL.createObjectURL(blob);
+	      	          if (filename) {
+	      	            const a = document.createElement("a");
+	      	            a.href = url;
+	      	            a.download = filename;
+	      	            document.body.appendChild(a);
+	      	            a.click();
+	      	            document.body.removeChild(a);
+	      	          } else {
+	      	            window.location.href = url;
+	      	          }
+	      	          setTimeout(() => URL.revokeObjectURL(url), 100);
+	      	        }
+		
+	      	        new Noty({
+	      	          text: "Log download successfully.",
+	      	          type: "success"
+	      	        }).show();
+	      	      },
+	      	      error: () => {
+	      	        new Noty({
+	      	          text: "Cannot download log. Please refresh and try again",
+	      	          type: "error"
+	      	        }).show();
+	      	      },
+	      	      complete: () => {
+	      	        // 4) restore the button
+	      	    	btn.innerHTML = originalHtml;
+	      	        btn.disabled = false;
+	      	      }
+	      	    });
+            }
+	      },
+	
+	      beforeMount() {
+	        this.getLogFiles();
+	      }
+	    }).mount("#listView");
+		
+	</script>
+</body>
+
+</html>

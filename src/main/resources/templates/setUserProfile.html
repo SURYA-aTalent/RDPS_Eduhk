@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="" layout:decorate="~{fragments/template}">
+
+<head>
+<title th:text="#{menu.setUserProfile}"></title>
+</head>
+<body>
+	<div layout:fragment="breadcrumb">
+		<a th:href="@{/}" class="breadcrumb-item nav-link"><i
+			class="icon-home2 mr-2"></i> Home</a> <a class="breadcrumb-item nav-link"
+			th:text="#{menu.setUserProfile}"></a>
+	</div>
+	
+	<div layout:fragment="content">
+		<!---- Component List View ------------------------------------>
+		<div class="card" id="listView">		
+			<div class="card-header header-elements-inline">
+				<h5 class="card-title" th:text="#{setUserProfile.title}"></h5>
+				<div class="header-elements">
+					<div class="list-icons"></div>
+				</div>
+			</div>		
+			<div class="card-footer">
+				<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#entry" id="entryBtn">
+					<i class="fas fa-plus"></i> Add New User Profile
+				</button>
+			</div>
+			<div class="table-responsive">
+				<table id="userTable" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th rowspan="1" class="nowrap">Network ID</th>
+							<th rowspan="1" class="nowrap">Staff Name</th>
+							<th rowspan="1">Staff Role</th>
+							<th rowspan="1">Effective Date From</th>
+							<th rowspan="1">Effective Date To</th>
+						</tr>					
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!---- Component Entry ------------------------------------>
+		<!-- popup windows form -->
+		<div class="modal fade" id="entry">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header header-elements-inline">
+						<h5 class="card-title" th:text="#{enterUser.editUser}"></h5>
+						<div class="header-elements">
+							<div class="list-icons mandatory">* Mandatory Field</div>
+						</div>
+					</div>
+					<div class="modal-body">
+						<form id="form">
+							<div class="form-group row">
+							
+								<div class="input-group col-sm-12 mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Network ID: <span class="mandatory ml-1">*</span></span>										
+									</div>
+									<input type="text" id="staffNumberInput" class="form-control" v-model="cn"  @change="nextIfChange">
+								</div>
+								
+								<div class="input-group col-sm-12 mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Staff Name: </span>
+									</div>
+									<input type="text" class="form-control" v-model="userData.staffName" readOnly>
+								</div>
+							
+								<div class="input-group col-sm-12 mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Staff Role: <span class="mandatory ml-1">*</span></span>										
+									</div>
+
+									<select class="form-control" v-model="userData.role" v-on:change="getStaffDetails">
+										<option th:each="role: ${roleList}" th:value="${role}" th:text="${role}">
+										</option>
+									</select>
+								</div>				
+													
+								<div class="input-group col-sm-6 mt-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Effective Date From: <span class="mandatory ml-1">*</span></span>
+									</div>
+									<input type="text" class="form-control datepicker" id="dateFrom" placeholder="DD/MM/YYYY" 
+									v-model="userData.effectiveDateFrom">
+								</div>
+														
+								<div class="input-group col-sm-6 mt-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Effective Date To: </span>
+									</div>
+									<input type="text" class="form-control datepicker" id="dateTo" placeholder="DD/MM/YYYY" 
+									v-model="userData.effectiveDateTo">
+								</div>																		
+								
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" v-on:click="confirmSave">Save</button>
+						<button type="button" class="btn btn-danger"  v-on:click="confirmDelete">Delete</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeBtn">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script layout:fragment="script" th:inline="javascript">
+		//Vue.config.devtools = true;
+		var dateFormat = /*[[${@parameters.getDateFormat()}]]*/ "";
+		var currencyFormat = /*[[${@parameters.getJsCurrencyFormat()}]]*/ "";
+		
+		$(document).ready(function() {
+			var today = new Date();
+			$(".datepicker").pickadate({
+				format: 'dd/mm/yyyy'
+			});
+			//$("#dateFrom").pickadate("picker").set("select", today);
+		});
+		
+		var g_staffRole = null;
+		
+		const { createApp } = Vue;
+
+		/* ── List‐View App ────────────────────────────────────────────────────────── */
+		const lv = createApp({
+		  data() {
+		    return {
+		      userTable: null,
+		      tableData: [],
+		      tableInited: false
+		    };
+		  },
+		  methods: {
+		    initSetupTable() {
+		      // show spinner/overlay
+		      $("#userTable").block();
+
+		      // keep a ref to the DataTable API instance
+		      this.userTable = $("#userTable").DataTable({
+		        ajax: {
+		          url: /*[[@{/main/ajax/getUserProfile}]]*/ "",
+		          type: "POST",
+		          dataSrc: (rs) => {
+		            // populate a Vue array from the result
+		            this.tableData = rs.result;
+		            return rs.result; // feed DataTables row‐data
+		          }
+		        },
+		        lengthMenu: [
+		          [5, 10, 25, 50, -1],
+		          [5, 10, 25, 50, "All"]
+		        ],
+		        pageLength: 10,
+		        destroy: true,
+		        columns: [
+		          {
+		            data: "cn",
+		            render: (v) => v == null ? "" : v
+		          },
+		          {
+		            data: "staffName",
+		            render: (v) => v == null ? "" : v
+		          },
+		          {
+		            data: "role",
+		            render: (v) => v == null ? "" : v
+		          },
+		          {
+		            data: "effectiveDateFrom",
+		            render: (v) => v == null ? "" : v
+		          },
+		          {
+		            data: "effectiveDateTo",
+		            render: (v) => v == null ? "" : v
+		          }
+		        ],
+		        createdRow: (row, data) => {
+		          $(row).on("click", () => {
+		            // reuse your existing `et` instance below
+		            et.cn = data.cn;
+		            et.userData = { ...data };
+		            et.getStaffNameByCN();
+		            $("#entry").modal("show");
+		          });
+		        },
+		        drawCallback: () => {
+		          this.tableInited = true;
+		          $("#userTable").unblock();
+		        }
+		      });
+		    }
+		  },
+		  mounted() {
+		    this.initSetupTable();
+		  }
+		}).mount("#listView");
+
+
+		/* ── Entry‐Modal App ───────────────────────────────────────────────────────── */
+		const et = createApp({
+		  data() {
+		    return {
+		      cn: "",
+		      userDataObject: {
+		        cn: "",
+		        staffName: "",
+		        role: "",
+		        effectiveDateFrom: "",
+		        effectiveDateTo: ""
+		      },
+		      userData: {}
+		    };
+		  },
+		  methods: {
+		    nextIfChange() {
+		      this.getStaffNameByCN();
+		    },
+		    getStaffNameByCN() {
+		      $.ajax({
+		        type: "POST",
+		        url: /*[[@{/main/ajax/getStaffNameByCN}]]*/ "",
+		        data: { cn: this.cn },
+		        dataType: "json"
+		      })
+		        .done((res) => {
+
+		          new Noty({
+		            text: res.message,
+		            type: res.notyAlertLevel,
+		            timeout: 1000
+		          }).show();
+		          if (res.success) {
+		            this.userData.staffName = res.result || "";
+		          }
+		        })
+		        .fail(() => {
+		          new Noty({ text: "AJAX error", type: "error" }).show();
+		        });
+		    },
+		    getStaffDetails() {
+		      $.ajax({
+		        type: "POST",
+		        url: /*[[@{/main/ajax/getThisUserAllProfile}]]*/ "",
+		        data: { cn: this.cn, role: this.userData.role },
+		        dataType: "json"
+		      })
+		        .done((res) => {
+		          if (res.success && res.result.effectiveDateFrom) {
+		            this.userData = { ...this.userData, ...res.result };
+		            new Noty({
+		              text: res.message,
+		              type: res.notyAlertLevel,
+		              timeout: 1000
+		            }).show();
+		          } else {
+		            this.userData.effectiveDateFrom = "";
+		            this.userData.effectiveDateTo   = "";
+		          }
+		        })
+		        .fail(() => {
+		          new Noty({ text: "AJAX error", type: "error" }).show();
+		        });
+		    },
+		    confirmSave() {
+		      bootbox
+		        .confirm("Confirm Save?", (result) => {
+		          if (!result) return;
+		          // sync form fields if you’re using datepickers etc.
+		          this.userData.cn                  = this.cn;
+		          this.userData.effectiveDateFrom   = $("#dateFrom").val();
+		          this.userData.effectiveDateTo     = $("#dateTo").val();
+		          $.ajax({
+		            type: "POST",
+		            url: /*[[@{/main/ajax/saveUserProfile}]]*/ "",
+		            data: { app: JSON.stringify(this.userData) },
+		            dataType: "json"
+		          })
+		            .done((res) => {
+		              new Noty({
+		                text: res.message,
+		                type: res.notyAlertLevel,
+		                timeout: 1000
+		              }).show();
+		              lv.userTable.ajax.reload(); // refresh the other table
+		              $("#entry").modal("hide");
+		            })
+		            .fail(() => {
+		              new Noty({ text: "AJAX error", type: "error" }).show();
+		            });
+		        })
+		        .one("hidden.bs.modal", () => {
+		          // keep background modal open if nested
+		          if ($(".modal.show").length) {
+		            $("body").addClass("modal-open");
+		          }
+		        });
+		    },
+		    confirmDelete() {
+		      bootbox
+		        .confirm("Confirm Delete?", (result) => {
+		          if (!result) return;
+		          this.userData.cn = this.cn;
+		          $.ajax({
+		            type: "POST",
+		            url: /*[[@{/main/ajax/deleteUserProfile}]]*/ "",
+		            data: { app: JSON.stringify(this.userData) },
+		            dataType: "json"
+		          })
+		            .done((res) => {
+		              new Noty({
+		                text: res.message,
+		                type: res.notyAlertLevel,
+		                timeout: 1000
+		              }).show();
+		              lv.userTable.ajax.reload();
+		              $("#entry").modal("hide");
+		            })
+		            .fail(() => {
+		              new Noty({ text: "AJAX error", type: "error" }).show();
+		            });
+		        })
+		        .one("hidden.bs.modal", () => {
+		          if ($(".modal.show").length) {
+		            $("body").addClass("modal-open");
+		          }
+		        });
+		    }
+		  },
+		  beforeMount() {
+		    // seed userData from the template defaults
+		    this.userData = { ...this.userDataObject };
+		  },
+		  mounted() {
+		    // Modal reset logic
+		    $("#entry").hide();
+		    $("#entry").on("hidden.bs.modal", () => {
+		      this.cn = "";
+		      this.userData = Object.assign({}, this.userData, this.userDataObject);
+		    });
+		    
+		    // Tooltip initialization (Bootstrap 5)
+		    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+		    tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
+		  }
+		}).mount('#entry');
+		
+	</script>
+</body>
+
+</html>

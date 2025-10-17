@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      layout:decorate="~{fragments/template}">
+
+<!-- File Path: src/main/resources/templates/importData.html -->
+<!-- Purpose: Import dashboard page for TalentLink data import -->
+
+<head>
+<title>Data Import from TalentLink</title>
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<!-- Import Dashboard Card -->
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title mb-4">Data Import from TalentLink</h3>
+				<h6 class="card-subtitle">Import recruitment data from TalentLink API to RDPS database</h6>
+			</div>
+
+			<div class="card-body">
+
+				<!-- Last Import Information Section -->
+				<div class="row">
+					<div class="col-md-12">
+						<h5>Last Import Information</h5>
+						<table class="table table-sm">
+							<tbody>
+								<tr>
+									<th width="30%">Last Import Date:</th>
+									<td id="lastImportDate" th:text="${lastImportDate}">Never</td>
+								</tr>
+								<tr>
+									<th>Last Imported Candidate ID:</th>
+									<td id="lastCandidateId" th:text="${lastCandidateId}">0</td>
+								</tr>
+								<tr>
+									<th>Batch Size:</th>
+									<td id="batchSize" th:text="${batchSize}">100</td>
+								</tr>
+								<tr>
+									<th>API Configured:</th>
+									<td id="apiConfigured">
+										<span th:if="${apiConfigured}" class="badge badge-success">Yes</span>
+										<span th:unless="${apiConfigured}" class="badge badge-danger">No</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<hr/>
+
+				<!-- Action Buttons -->
+				<div class="row">
+					<div class="col-md-12">
+						<button type="button" class="btn btn-primary" id="btnImportData" sec:authorize="hasRole('ADMIN')">
+							<i class="fa fa-download"></i> Import New Candidates
+						</button>
+						<a th:href="@{/import/history}" class="btn btn-secondary">
+							<i class="fa fa-history"></i> View Import History
+						</a>
+						<a th:href="@{/import/validation-errors}" class="btn btn-warning">
+							<i class="fa fa-exclamation-triangle"></i> View Validation Errors
+						</a>
+					</div>
+				</div>
+
+				<!-- Import Progress Section (initially hidden) -->
+				<div class="row mt-4" id="importProgressSection" style="display:none;">
+					<div class="col-md-12">
+						<div class="alert alert-info">
+							<h5><i class="fa fa-spinner fa-spin"></i> Import in Progress...</h5>
+							<p id="progressMessage">Fetching candidates from TalentLink API...</p>
+							<p id="progressDetail"></p>
+							<p><em>Please do not close this window.</em></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Import Results Section (initially hidden) -->
+				<div class="row mt-4" id="importResultsSection" style="display:none;">
+					<div class="col-md-12">
+						<div class="alert" id="resultsAlert">
+							<h5>Import Completed</h5>
+							<table class="table table-sm">
+								<tbody>
+									<tr>
+										<th width="40%">Total Candidates Processed:</th>
+										<td id="resultTotal">0</td>
+									</tr>
+									<tr>
+										<th>Successfully Imported:</th>
+										<td id="resultSuccess">0</td>
+									</tr>
+									<tr>
+										<th>Errors:</th>
+										<td id="resultErrors">0</td>
+									</tr>
+									<tr>
+										<th>Import Duration:</th>
+										<td id="resultDuration">0 seconds</td>
+									</tr>
+								</tbody>
+							</table>
+							<button type="button" class="btn btn-sm btn-info" id="btnViewErrorDetails" style="display:none;">
+								View Error Details
+							</button>
+							<button type="button" class="btn btn-sm btn-secondary" id="btnDownloadLog" style="display:none;">
+								Download Log
+							</button>
+							<button type="button" class="btn btn-sm btn-primary" id="btnOkResults">
+								OK
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Confirmation Modal -->
+		<div class="modal fade" id="confirmImportModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Confirm Import</h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure you want to import new candidates from TalentLink?</p>
+						<p>This will import all candidates added since the last successful import.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-primary" id="btnConfirmImport">Import</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- JavaScript -->
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+			var contextPath = /*[[@{/}]]*/ '';
+			/*]]>*/
+		</script>
+		<script th:src="@{/js/importData.js}"></script>
+	</th:block>
+
+</body>
+</html>
