@@ -9,7 +9,7 @@
               maxIdle="30"
               maxWaitMillis="10000"
               username="RDPS"
-              password="rdps655038"
+              password="rdps_password123"
               driverClassName="oracle.jdbc.driver.OracleDriver"
               url="jdbc:oracle:thin:@//localhost:1521/FREEPDB1"/>
 

@@ -20,7 +20,6 @@ public class ShedLockConfig {
         return new JdbcTemplateLockProvider(JdbcTemplateLockProvider.Configuration.builder()
                 .withJdbcTemplate(new JdbcTemplate(dataSource))
                 .withTableName("RDPS_SHEDLOCK")
-                .usingDbTime() // Use database time instead of system time
                 .build());
     }
 }

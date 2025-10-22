@@ -59,7 +59,7 @@
 				<!-- Action Buttons -->
 				<div class="row">
 					<div class="col-md-12">
-						<button type="button" class="btn btn-primary" id="btnImportData" sec:authorize="hasRole('ADMIN')">
+						<button type="button" class="btn btn-primary" id="btnImportData" sec:authorize="hasRole('USE_RDPS')">
 							<i class="fa fa-download"></i> Import New Candidates
 						</button>
 						<a th:href="@{/import/history}" class="btn btn-secondary">

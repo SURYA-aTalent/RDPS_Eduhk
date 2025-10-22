@@ -54,11 +54,11 @@ public class LookupValueResolver {
     }
 
     private void loadDistrictCache() {
-        String sql = "SELECT DISTRICT_KEY, DISTRICT_DESC FROM RDPS.RDPS_LOV_DISTRICT WHERE ACTIVE = 'Y'";
+        String sql = "SELECT DISTRICT_KEY, DISTRICT_VALUE FROM RDPS.RDPS_LOV_DISTRICT";
         Map<String, Integer> districtMap = new HashMap<>();
 
         jdbcTemplate.query(sql, (rs) -> {
-            districtMap.put(rs.getString("DISTRICT_DESC").toLowerCase(), rs.getInt("DISTRICT_KEY"));
+            districtMap.put(rs.getString("DISTRICT_VALUE").toLowerCase(), rs.getInt("DISTRICT_KEY"));
         });
 
         lovCache.put("DISTRICT", districtMap);
@@ -66,11 +66,11 @@ public class LookupValueResolver {
     }
 
     private void loadEducationLevelCache() {
-        String sql = "SELECT EDU_LEVEL_KEY, EDU_LEVEL_DESC FROM RDPS.RDPS_LOV_EDU_LEVEL WHERE ACTIVE = 'Y'";
+        String sql = "SELECT EDU_LEVEL_KEY, EDU_LEVEL_VALUE FROM RDPS.RDPS_LOV_EDU_LEVEL";
         Map<String, Integer> eduLevelMap = new HashMap<>();
 
         jdbcTemplate.query(sql, (rs) -> {
-            eduLevelMap.put(rs.getString("EDU_LEVEL_DESC").toLowerCase(), rs.getInt("EDU_LEVEL_KEY"));
+            eduLevelMap.put(rs.getString("EDU_LEVEL_VALUE").toLowerCase(), rs.getInt("EDU_LEVEL_KEY"));
         });
 
         lovCache.put("EDU_LEVEL", eduLevelMap);
@@ -78,11 +78,11 @@ public class LookupValueResolver {
     }
 
     private void loadStudyModeCache() {
-        String sql = "SELECT STUDY_MODE_KEY, STUDY_MODE_DESC FROM RDPS.RDPS_LOV_STUDY_MODE WHERE ACTIVE = 'Y'";
+        String sql = "SELECT STUDY_MODE_KEY, STUDY_MODE_VALUE FROM RDPS.RDPS_LOV_STUDY_MODE";
         Map<String, Integer> studyModeMap = new HashMap<>();
 
         jdbcTemplate.query(sql, (rs) -> {
-            studyModeMap.put(rs.getString("STUDY_MODE_DESC").toLowerCase(), rs.getInt("STUDY_MODE_KEY"));
+            studyModeMap.put(rs.getString("STUDY_MODE_VALUE").toLowerCase(), rs.getInt("STUDY_MODE_KEY"));
         });
 
         lovCache.put("STUDY_MODE", studyModeMap);
@@ -90,11 +90,11 @@ public class LookupValueResolver {
     }
 
     private void loadQualAwardDescCache() {
-        String sql = "SELECT QUAL_AWARD_DESC_KEY, QUAL_AWARD_DESC FROM RDPS.RDPS_LOV_QUAL_AWARD_DESC WHERE ACTIVE = 'Y'";
+        String sql = "SELECT QUAL_AWARD_DESC_KEY, QUAL_AWARD_DESC_VALUE FROM RDPS.RDPS_LOV_QUAL_AWARD_DESC";
         Map<String, Integer> qualAwardDescMap = new HashMap<>();
 
         jdbcTemplate.query(sql, (rs) -> {
-            qualAwardDescMap.put(rs.getString("QUAL_AWARD_DESC").toLowerCase(), rs.getInt("QUAL_AWARD_DESC_KEY"));
+            qualAwardDescMap.put(rs.getString("QUAL_AWARD_DESC_VALUE").toLowerCase(), rs.getInt("QUAL_AWARD_DESC_KEY"));
         });
 
         lovCache.put("QUAL_AWARD_DESC", qualAwardDescMap);
@@ -102,11 +102,11 @@ public class LookupValueResolver {
     }
 
     private void loadQualAwardClassCache() {
-        String sql = "SELECT QUAL_AWARD_CLASS_KEY, QUAL_AWARD_CLASS_DESC FROM RDPS.RDPS_LOV_QUAL_AWARD_CLASS WHERE ACTIVE = 'Y'";
+        String sql = "SELECT QUAL_AWARD_CLASS_KEY, QUAL_AWARD_CLASS_VALUE FROM RDPS.RDPS_LOV_QUAL_AWARD_CLASS";
         Map<String, Integer> qualAwardClassMap = new HashMap<>();
 
         jdbcTemplate.query(sql, (rs) -> {
-            qualAwardClassMap.put(rs.getString("QUAL_AWARD_CLASS_DESC").toLowerCase(), rs.getInt("QUAL_AWARD_CLASS_KEY"));
+            qualAwardClassMap.put(rs.getString("QUAL_AWARD_CLASS_VALUE").toLowerCase(), rs.getInt("QUAL_AWARD_CLASS_KEY"));
         });
 
         lovCache.put("QUAL_AWARD_CLASS", qualAwardClassMap);

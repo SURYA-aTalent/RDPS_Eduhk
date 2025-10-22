@@ -117,6 +117,48 @@ GRANT CREATE DATABASE LINK TO RDPS;
 EXIT;
 ```
 
+### Step 5: Create RDPS Tablespace
+
+The database tables require a dedicated tablespace. Create it using:
+
+```bash
+docker exec -it oracle-db-free sqlplus sys/password123@FREEPDB1 as sysdba
+```
+
+In SQL*Plus, execute:
+
+```sql
+-- Create RDPS_DATA tablespace
+CREATE TABLESPACE RDPS_DATA
+  DATAFILE '/opt/oracle/oradata/FREE/FREEPDB1/rdps_data01.dbf'
+  SIZE 500M AUTOEXTEND ON NEXT 100M MAXSIZE UNLIMITED
+  EXTENT MANAGEMENT LOCAL AUTOALLOCATE
+  SEGMENT SPACE MANAGEMENT AUTO;
+
+-- Grant quota on the new tablespace to RDPS user
+ALTER USER RDPS QUOTA UNLIMITED ON RDPS_DATA;
+
+-- Disable failed login attempts to prevent account locking
+ALTER PROFILE DEFAULT LIMIT FAILED_LOGIN_ATTEMPTS UNLIMITED;
+
+-- Verify tablespace creation
+SELECT tablespace_name FROM dba_tablespaces WHERE tablespace_name = 'RDPS_DATA';
+
+-- Exit SQL*Plus
+EXIT;
+```
+
+Expected output:
+```
+Tablespace created.
+User altered.
+Profile altered.
+
+TABLESPACE_NAME
+------------------------------
+RDPS_DATA
+```
+
 ---
 
 ## Database Schema Installation
@@ -195,6 +237,54 @@ SELECT object_name, object_type, status
 FROM user_objects
 WHERE status = 'INVALID' AND object_name LIKE 'RDPS_%';
 ```
+
+### Insert Configuration Values
+
+After schema installation, insert the TalentLink API configuration parameters:
+
+```bash
+# Connect as RDPS user
+docker exec -it oracle-db-free sqlplus RDPS/rdps_password123@FREEPDB1
+```
+
+Execute the following SQL to configure TalentLink API credentials:
+
+```sql
+-- Insert TalentLink API configuration parameters
+INSERT INTO RDPS_PARAMETER (PARAM_CODE, PARAM_VALUE, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES ('TALENTLINK_API_KEY', '10047a13-72fb-ad0a-0cc4-773a4ef874b9', 'Y', SYSDATE, 'SYSTEM');
+
+INSERT INTO RDPS_PARAMETER (PARAM_CODE, PARAM_VALUE, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES ('TALENTLINK_USERNAME', 'EdUHK UAT:prabhu.srinivasan@atalent.com:BO', 'Y', SYSDATE, 'SYSTEM');
+
+INSERT INTO RDPS_PARAMETER (PARAM_CODE, PARAM_VALUE, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES ('TALENTLINK_PASSWORD', '2!Password', 'Y', SYSDATE, 'SYSTEM');
+
+INSERT INTO RDPS_PARAMETER (PARAM_CODE, PARAM_VALUE, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES ('TALENTLINK_CANDIDATE_SOAP_URL', 'https://api3.lumesse-talenthub.com/HRIS/SOAP/Candidate', 'Y', SYSDATE, 'SYSTEM');
+
+INSERT INTO RDPS_PARAMETER (PARAM_CODE, PARAM_VALUE, ACTIVE, TIMESTAMP, USERSTAMP)
+VALUES ('TALENTLINK_USER_SOAP_URL', 'https://api3.lumesse-talenthub.com/User/SOAP/User', 'Y', SYSDATE, 'SYSTEM');
+
+COMMIT;
+
+-- Verify configuration values
+SELECT PARAM_CODE, PARAM_VALUE FROM RDPS_PARAMETER
+WHERE PARAM_CODE LIKE 'TALENTLINK%' ORDER BY PARAM_CODE;
+```
+
+Expected output:
+```
+PARAM_CODE                       PARAM_VALUE
+-------------------------------- -----------------------------------------------------
+TALENTLINK_API_KEY               10047a13-72fb-ad0a-0cc4-773a4ef874b9
+TALENTLINK_CANDIDATE_SOAP_URL    https://api3.lumesse-talenthub.com/HRIS/SOAP/Candidate
+TALENTLINK_PASSWORD              2!Password
+TALENTLINK_USERNAME              EdUHK UAT:prabhu.srinivasan@atalent.com:BO
+TALENTLINK_USER_SOAP_URL         https://api3.lumesse-talenthub.com/User/SOAP/User
+```
+
+**⚠️ Important:** After inserting or updating these parameters, you must restart the application for the changes to take effect. The TalentLink SOAP services initialize credentials during application startup (`@PostConstruct`).
 
 ---
 
@@ -619,6 +709,45 @@ java.net.UnknownHostException
    curl -v https://your-instance.lumessetalentlink.com
    ```
 
+### Issue 9: TalentLink SOAP Authentication Failed (403 Forbidden)
+
+**Symptoms:**
+```
+WARN  e.f.w.s.h.TalentLinkSOAPHandler - No username configured - SOAP request may fail authentication
+ERROR e.f.w.s.TalentLinkSOAPUserService - Failed to create user via SOAP: The server sent HTTP status code 403: Forbidden
+```
+
+**Solution:**
+1. Verify all 4 required parameters exist in RDPS_PARAMETER table:
+   ```sql
+   SELECT PARAM_CODE, PARAM_VALUE, ACTIVE
+   FROM RDPS.RDPS_PARAMETER
+   WHERE PARAM_CODE IN (
+       'TALENTLINK_USER_SOAP_URL',
+       'TALENTLINK_USERNAME',
+       'TALENTLINK_PASSWORD',
+       'TALENTLINK_API_KEY'
+   )
+   ORDER BY PARAM_CODE;
+   ```
+
+2. Ensure all parameters have valid values (not NULL or empty)
+
+3. **Restart the application** after adding/updating parameters:
+   ```bash
+   # Stop Tomcat
+   /path/to/tomcat/bin/shutdown.sh
+
+   # Wait a few seconds, then start
+   /path/to/tomcat/bin/startup.sh
+   ```
+
+4. Verify credentials are loaded on startup by checking logs:
+   ```bash
+   grep "SOAP credentials configured" logs/catalina.out
+   # Should show: SOAP credentials configured for user: EdUHK UAT:prabhu.srinivasan@atalent.com:BO
+   ```
+
 ### Logging and Debugging
 
 Enable debug logging in `application.properties`:
@@ -866,15 +995,12 @@ Proprietary - The Education University of Hong Kong
 ## Screenshots:
 
 	
+		
+
+
 	
 
 	
-
-	
-
-
-
-
 
 
 
@@ -886,5 +1012,20 @@ Proprietary - The Education University of Hong Kong
 
 
 	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
 
 

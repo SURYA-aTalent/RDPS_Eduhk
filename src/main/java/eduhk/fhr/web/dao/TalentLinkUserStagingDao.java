@@ -22,8 +22,8 @@ public class TalentLinkUserStagingDao extends BaseDao {
         String sql =
             "SELECT user_id, last_name, first_name, email, user_type, login_username, " +
             "       password, role, language, week_start_on, branding, timezone, " +
-            "       status, activation_type, synced_to_talentlink, talentlink_user_id, sync_date, sync_log, " +
-            "       created_by, created_date, last_updated_by, last_updated_date " +
+            "       status, activation_type, synced_to_talentlink, sync_date, sync_log, " +
+            "       created_by, creation_date, userstamp, timestamp " +
             "FROM rdps_talentlink_user_staging " +
             "ORDER BY user_id";
 
@@ -39,8 +39,8 @@ public class TalentLinkUserStagingDao extends BaseDao {
         String sql =
             "SELECT user_id, last_name, first_name, email, user_type, login_username, " +
             "       password, role, language, week_start_on, branding, timezone, " +
-            "       status, activation_type, synced_to_talentlink, talentlink_user_id, sync_date, sync_log, " +
-            "       created_by, created_date, last_updated_by, last_updated_date " +
+            "       status, activation_type, synced_to_talentlink, sync_date, sync_log, " +
+            "       created_by, creation_date, userstamp, timestamp " +
             "FROM rdps_talentlink_user_staging " +
             "WHERE synced_to_talentlink = 'N' " +
             "ORDER BY user_id";
@@ -79,7 +79,7 @@ public class TalentLinkUserStagingDao extends BaseDao {
         String sql =
             "UPDATE rdps_talentlink_user_staging " +
             "SET sync_log = :errorLog, " +
-            "    last_updated_date = SYSDATE " +
+            "    timestamp = SYSDATE " +
             "WHERE user_id = :userId";
 
         MapSqlParameterSource params = new MapSqlParameterSource()
@@ -114,9 +114,9 @@ public class TalentLinkUserStagingDao extends BaseDao {
             user.setSyncDate(rs.getDate("sync_date"));
             user.setSyncLog(rs.getString("sync_log"));
             user.setCreatedBy(rs.getString("created_by"));
-            user.setCreationDate(rs.getDate("created_date"));
-            user.setUserstamp(rs.getString("last_updated_by"));
-            user.setTimestamp(rs.getDate("last_updated_date"));
+            user.setCreationDate(rs.getDate("creation_date"));
+            user.setUserstamp(rs.getString("userstamp"));
+            user.setTimestamp(rs.getDate("timestamp"));
             return user;
         }
     }

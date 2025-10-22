@@ -41,7 +41,7 @@ public class ImportHistoryDAO {
             "IMPORT_ID, IMPORT_DATE, TRIGGERED_BY, TOTAL_CANDIDATES, " +
             "SUCCESSFUL_IMPORTS, FAILED_IMPORTS, DURATION_MS, " +
             "LAST_CANDIDATE_ID, STATUS, ERROR_MESSAGE, " +
-            "CREATED_BY, CREATION_DATE, USERSTAMP, DATESTAMP" +
+            "CREATED_BY, CREATION_DATE, USERSTAMP, TIMESTAMP" +
             ") VALUES (" +
             "RDPS_IMPORT_HISTORY_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?, SYSDATE" +
             ")";
