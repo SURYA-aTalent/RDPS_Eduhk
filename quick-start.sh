@@ -123,7 +123,7 @@ echo "Step 3: Creating RDPS database user..."
 echo "---------------------------------------"
 
 # Create RDPS user
-docker exec oracle-db-free sqlplus -s sys/password123@FREEPDB1 as sysdba << EOF > /tmp/create_user.log 2>&1
+docker exec oracle-db-free bash -c "sqlplus -s sys/password123@FREEPDB1 as sysdba <<'EOSQL' > /tmp/create_user.log 2>&1
 SET ECHO OFF
 SET FEEDBACK OFF
 SET HEADING OFF
@@ -157,7 +157,8 @@ GRANT CREATE DATABASE LINK TO RDPS;
 SELECT 'User RDPS created successfully' FROM dual;
 
 EXIT;
-EOF
+EOSQL
+"
 
 if grep -q "created successfully" /tmp/create_user.log; then
     print_success "RDPS user created"
@@ -176,7 +177,7 @@ print_success "Scripts copied"
 
 # Run installation script
 print_info "Executing database installation script..."
-docker exec oracle-db-free sqlplus -s RDPS/rdps_password123@FREEPDB1 << EOF > /tmp/install_db.log 2>&1
+docker exec oracle-db-free bash -c "sqlplus -s RDPS/rdps_password123@FREEPDB1 <<'EOSQL' > /tmp/install_db.log 2>&1
 SET ECHO OFF
 SET FEEDBACK ON
 SET HEADING ON
@@ -184,7 +185,8 @@ SET HEADING ON
 @/opt/oracle/db_scripts/00_INSTALL_ALL.sql
 
 EXIT;
-EOF
+EOSQL
+"
 
 # Check if installation was successful
 if grep -q "Completed Successfully" /tmp/install_db.log; then
@@ -194,13 +196,13 @@ else
 fi
 
 # Verify table count
-TABLE_COUNT=$(docker exec oracle-db-free sqlplus -s RDPS/rdps_password123@FREEPDB1 << EOF | grep -o '[0-9]*'
+TABLE_COUNT=$(docker exec oracle-db-free bash -c "sqlplus -s RDPS/rdps_password123@FREEPDB1 <<'EOSQL'
 SET FEEDBACK OFF
 SET HEADING OFF
 SELECT COUNT(*) FROM user_tables;
 EXIT;
-EOF
-)
+EOSQL
+" | grep -o '[0-9]*')
 
 if [ "$TABLE_COUNT" -ge 20 ]; then
     print_success "Database verification passed ($TABLE_COUNT tables created)"
@@ -242,9 +244,11 @@ echo "   Username: fhr-dev-uacct01"
 echo "   Password: password123"
 echo ""
 echo "4. Useful pages:"
-echo "   • Dashboard: http://localhost:8080/RDPS/admin/dashboard"
-echo "   • Import: http://localhost:8080/RDPS/import/data"
+echo "   • Main Page: http://localhost:8080/RDPS/"
+echo "   • Import Data: http://localhost:8080/RDPS/import/data"
+echo "   • Import History: http://localhost:8080/RDPS/import/history"
 echo "   • Validation Errors: http://localhost:8080/RDPS/import/validation-errors"
+echo "   • User Sync: http://localhost:8080/RDPS/admin/userSync"
 echo ""
 echo "Database Connection Details:"
 echo "   Host: localhost"

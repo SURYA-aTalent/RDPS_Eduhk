@@ -7,8 +7,10 @@
 **Version:** 0.0.1-SNAPSHOT
 **Java Version:** 21
 **Framework:** Spring Boot 4.0.0-SNAPSHOT
-**Database:** Oracle Database 23c Free
+**Database:** Oracle Database 23c Free (Development) / Oracle Database 11g+ (Production)
 **Deployment:** WAR (Tomcat)
+
+> **Note:** The development environment uses Oracle Database 23c Free in a Docker container. For production deployments, you can use any Oracle Database instance (11g or higher) by updating the database URL in `application.properties` or JNDI configuration - no Docker container required.
 
 ---
 
@@ -371,28 +373,6 @@ RDPS implements a **hybrid SSO + local development authentication** system using
 
 **Purpose:** Extracts username from HTTP header for SSO authentication
 
-**Implementation:**
-```java
-public class HeaderAuthenticationFilter extends AbstractPreAuthenticatedProcessingFilter {
-    public static String PRINCIPAL_REQUEST_HEADER = "OAM_REMOTE_USER";
-
-    protected String getPreAuthenticatedPrincipal(HttpServletRequest request) {
-        String principal = request.getHeader("OAM_REMOTE_USER");
-
-        // Local development mode
-        if (request.getLocalAddr().startsWith(localIp)) {
-            principal = localUserName;  // "fhr-dev-uacct01"
-        }
-        // External without SSO header
-        else if (principal == null) {
-            principal = externalUserName;  // "RDPS_GUEST"
-        }
-
-        return principal;
-    }
-}
-```
-
 **Configuration:**
 - **SSO Header:** `OAM_REMOTE_USER` (Oracle Access Manager)
 - **Local Username:** `fhr-dev-uacct01` (from `parameters.properties`)
@@ -403,20 +383,6 @@ public class HeaderAuthenticationFilter extends AbstractPreAuthenticatedProcessi
 **Location:** `eduhk.fhr.web.config.UserDetailsServiceImpl`
 
 **Purpose:** Spring Security integration point for loading user details
-
-**Implementation:**
-```java
-@Service
-public class UserDetailsServiceImpl implements UserDetailsService {
-    @Override
-    public UserDetails loadUserByUsername(String username) {
-        User user = userDao.findByUsername(username);
-        UserDetailsImp userDetails = new UserDetailsImp();
-        userDetails.setUser(user);
-        return userDetails;
-    }
-}
-```
 
 #### 3. UserDao (Multi-Tier User Lookup)
 **Location:** `eduhk.fhr.web.dao.UserDao`
@@ -444,14 +410,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 > - `ssoJdbcTemplate()` - JDBC template for SSO queries
 
 **Tier 1: Guest User Check**
-```java
-if (username.equals("RDPS_GUEST")) {
-    user.setUsername("RDPS_GUEST");
-    user.setName("Guest");
-    authorities.add(new SimpleGrantedAuthority("ROLE_GUEST"));
-    return user;
-}
-```
+- Username: `RDPS_GUEST`
+- Authority: `ROLE_GUEST`
 
 **Tier 2: SSO Database Lookup (External)**
 ```sql
@@ -479,14 +439,7 @@ ORDER BY ae.department_code NULLS LAST
 
 **Lookup Results:**
 - **Success:** User populated with name, department, institute_id + `ROLE_STAFF` authority
-- **Failure (Dev):** Creates mock user:
-  ```java
-  user.setUsername(username);
-  user.setName("Local Development User");
-  user.setInstituteId("DEV001");
-  user.setDepartment("Local Development");
-  authorities.add(new SimpleGrantedAuthority("ROLE_STAFF"));
-  ```
+- **Failure (Dev):** Creates mock user with username, "Local Development User" name, "DEV001" institute ID, and `ROLE_STAFF` authority
 
 **Tier 3: RDPS Permission Lookup**
 ```sql
@@ -514,44 +467,7 @@ Authorities:
 #### 4. WebSecurityConfig
 **Location:** `eduhk.fhr.web.config.WebSecurityConfig`
 
-**Purpose:** Configures Spring Security with pre-authentication
-
-**Key Configuration:**
-```java
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfig {
-
-    // Pre-authentication filter
-    public HeaderAuthenticationFilter customRequestHeaderAutdhenticationFilter() {
-        HeaderAuthenticationFilter filter = new HeaderAuthenticationFilter();
-        filter.setAuthenticationManager(authenticationManager());
-        return filter;
-    }
-
-    // Authentication provider
-    PreAuthenticatedAuthenticationProvider preauthAuthProvider() {
-        PreAuthenticatedAuthenticationProvider provider =
-            new PreAuthenticatedAuthenticationProvider();
-        provider.setPreAuthenticatedUserDetailsService(userDetailsServiceWrapper());
-        return provider;
-    }
-
-    // Access control rules
-    protected SecurityFilterChain securityFilterChain(HttpSecurity http) {
-        http.authorizeHttpRequests(auth -> auth
-            .requestMatchers("/makeReservation").hasRole("USE_RDPS")
-            .requestMatchers("/viewReservation").hasRole("USE_RDPS")
-            .requestMatchers("/downloadLogs").hasRole("ACCESS_RIGHT_SETUP")
-            .requestMatchers("/setUserProfile").hasRole("ACCESS_RIGHT_SETUP")
-            .requestMatchers("/log/**").hasRole("USE_RDPS")
-            .requestMatchers("/main/**").hasRole("USE_RDPS")
-            .requestMatchers("/report/**").hasRole("USE_RDPS")
-            .anyRequest().authenticated()
-        );
-    }
-}
-```
+**Purpose:** Configures Spring Security with pre-authentication using HeaderAuthenticationFilter and PreAuthenticatedAuthenticationProvider
 
 ### Authorization
 
@@ -579,18 +495,7 @@ public class WebSecurityConfig {
 #### Logout Handler
 **Location:** `eduhk.fhr.web.config.SsoLogoutSuccessHandler`
 
-**Implementation:**
-```java
-@Component
-public class SsoLogoutSuccessHandler implements LogoutSuccessHandler {
-    @Override
-    public void onLogoutSuccess(HttpServletRequest request,
-                               HttpServletResponse response,
-                               Authentication authentication) {
-        response.sendRedirect(parameterService.getSsoLogoutUrl());
-    }
-}
-```
+**Purpose:** Redirects to SSO logout URL after invalidating session
 
 **Logout Flow:**
 1. User accesses `/logout`
@@ -687,20 +592,9 @@ RDPS uses **two separate database connections**:
 
 **Configuration Class:** `eduhk.fhr.web.config.AppConfig`
 
-```java
-@Bean("dataSource")
-public DataSource dataSource() {
-    // Production: JNDI lookup
-    // Fallback: application.properties configuration
-    // Development: H2 in-memory database
-}
-
-@Bean("ssoDataSource")
-public DataSource ssoDataSource() {
-    // Production: JNDI lookup to SSO database
-    // Development: H2 in-memory (SSO queries return mock users)
-}
-```
+**Beans:**
+- `dataSource()` - RDPS application database (JNDI lookup in production, application.properties in dev)
+- `ssoDataSource()` - SSO database (JNDI lookup in production, H2 fallback in dev)
 
 ### Application Properties (Development)
 
@@ -721,6 +615,22 @@ spring.datasource.hikari.minimum-idle=5
 server.port=8080
 server.servlet.context-path=/RDPS
 ```
+
+> **Using an Actual Oracle Database Instance:**
+>
+> The Docker container setup (`localhost:1521/FREEPDB1`) is for local development only. To connect to an actual Oracle Database instance (11g, 12c, 19c, 21c, or higher), simply update the `spring.datasource.url` to point to your database server:
+>
+> **For Oracle Service Name:**
+> ```properties
+> spring.datasource.url=jdbc:oracle:thin:@//your-db-host:1521/YOUR_SERVICE_NAME
+> ```
+>
+> **For Oracle SID:**
+> ```properties
+> spring.datasource.url=jdbc:oracle:thin:@your-db-host:1521:YOUR_SID
+> ```
+>
+> No Docker container is required for production or when connecting to an existing Oracle database instance. The application works with any Oracle Database 11g or higher.
 
 ### Production JNDI Configuration
 
@@ -841,36 +751,6 @@ system.version=v1.0.0
 
 ---
 
-## Development Guidelines
-
-### Adding a New Feature
-
-1. **Create Model** (if new entity) in `eduhk.fhr.web.model`
-2. **Create DAO** in `eduhk.fhr.web.dao` with MyBatis mapper
-3. **Create Service** in `eduhk.fhr.web.service` for business logic
-4. **Create Controller** in `eduhk.fhr.web.controller` for HTTP endpoints
-5. **Create Template** in `src/main/resources/templates` for UI
-6. **Update Security** in `WebSecurityConfig` if needed
-
-### Coding Standards
-
-- Follow Spring Boot best practices
-- Use dependency injection (`@Autowired`)
-- Keep controllers thin, logic in services
-- Use DTOs for API responses
-- Log important operations using SLF4J
-- Handle exceptions gracefully
-- Write SQL in MyBatis XML mappers, not in DAOs
-
-### Database Changes
-
-1. Create new SQL file in `db_scripts/`
-2. Update `00_INSTALL_ALL.sql` master script
-3. Test in Docker Oracle environment
-4. Document changes in README
-
----
-
 ## Deployment
 
 ### Build Process
@@ -949,15 +829,4 @@ ORDER BY LOG_DATE DESC;
 - **Concurrency Control:** ShedLock prevents duplicate execution across instances
 - **Lock Storage:** `RDPS_SHEDLOCK` table
 - **Default Lock Duration:** 10 minutes
-- **Scheduler:** Cron-based scheduling for candidate imports
-
-**ShedLock Configuration:**
-```java
-@Scheduled(cron = "0 0 2 * * ?")  // Daily at 2:00 AM
-@SchedulerLock(name = "importCandidates",
-               lockAtMostFor = "10m",
-               lockAtLeastFor = "5m")
-public void scheduledImport() {
-    // Import logic
-}
-```
+- **Scheduler:** Cron-based scheduling for candidate imports (daily at 2:00 AM)
