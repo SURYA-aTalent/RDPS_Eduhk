@@ -27,10 +27,20 @@
 				<!-- Back Button -->
 				<div class="row mb-3">
 					<div class="col-md-12">
-						<a href="/import/data" class="btn btn-secondary">
+						<a th:href="@{/import/data}" class="btn btn-secondary">
 							<i class="fa fa-arrow-left"></i> Back to Import Dashboard
 						</a>
 					</div>
+				</div>
+
+				<!-- Message Display (if any) -->
+				<div th:if="${message}" class="alert alert-info" role="alert">
+					<span th:text="${message}"></span>
+				</div>
+
+				<!-- Error Message Display (if any) -->
+				<div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+					<strong>Error:</strong> <span th:text="${errorMessage}"></span>
 				</div>
 
 				<!-- Error Details Table -->
@@ -39,21 +49,29 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
+									<th>Row No</th>
+									<th>Log Level</th>
 									<th>Timestamp</th>
-									<th>Candidate ID</th>
-									<th>Requisition #</th>
-									<th>Error Type</th>
-									<th>Field Name</th>
-									<th>Error Message</th>
+									<th>Log Message</th>
+									<th>User</th>
 								</tr>
 							</thead>
 							<tbody>
-								<!-- TODO: Loop through error details from model -->
-								<!-- TODO: th:each="error : ${errorDetails}" -->
-								<tr>
-									<td colspan="6" class="text-center">
-										<em>No error details available.</em>
+								<tr th:if="${#lists.isEmpty(importErrors)}">
+									<td colspan="5" class="text-center">
+										<em>No import errors found for the specified period.</em>
 									</td>
+								</tr>
+								<tr th:each="error : ${importErrors}">
+									<td th:text="${error.rowNo}">1</td>
+									<td>
+										<span class="badge"
+										      th:classappend="${error.logLevel == 'ERROR'} ? 'badge-danger' : (${error.logLevel == 'WARN'} ? 'badge-warning' : 'badge-info')"
+										      th:text="${error.logLevel}">ERROR</span>
+									</td>
+									<td th:text="${#dates.format(error.timestamp, 'yyyy-MM-dd HH:mm:ss')}">2023-10-17 12:00:00</td>
+									<td th:text="${error.logMessage}" style="max-width: 600px; word-wrap: break-word;">Error message</td>
+									<td th:text="${error.userstamp}">user</td>
 								</tr>
 							</tbody>
 						</table>

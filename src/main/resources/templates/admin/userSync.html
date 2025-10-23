@@ -102,19 +102,19 @@
 
     <div layout:fragment="content">
         <div class="user-sync-container">
-            <h2>TalentLink User Sync (SOAP API)</h2>
+            <h2>TalentLink User Sync</h2>
 
             <div class="sync-header">
                 <h4>Sync Users to TalentLink</h4>
-                <p>This page allows you to sync users from the staging table to TalentLink using SOAP API.</p>
+                <p>This page allows you to sync users from the staging table to TalentLink.</p>
                 <p><strong>Note:</strong> Only users with status "N" (Not Synced) will be processed.</p>
             </div>
 
-            <div class="info-box">
+            <!--<div class="info-box">
                 <strong>API Type:</strong> SOAP Web Services<br>
                 <strong>Endpoint:</strong> https://api3.lumesse-talenthub.com/User/SOAP/User<br>
                 <strong>Authentication:</strong> WS-Security (Username Token)
-            </div>
+            </div>-->
 
             <button class="sync-button" onclick="triggerSync()" id="syncButton">
                 ▶ Trigger User Sync
@@ -178,12 +178,20 @@
                 resultBox.style.display = 'none';
 
                 // Make AJAX request
+                const csrfToken = document.querySelector('meta[name="_csrf"]')?.content;
+                const csrfHeader = document.querySelector('meta[name="_csrf_header"]')?.content || 'X-CSRF-TOKEN';
+
+                const headers = {
+                    'Content-Type': 'application/json'
+                };
+
+                if (csrfToken) {
+                    headers[csrfHeader] = csrfToken;
+                }
+
                 fetch('/RDPS/admin/user-sync/trigger', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="_csrf"]').content
-                    }
+                    headers: headers
                 })
                 .then(response => response.text())
                 .then(result => {

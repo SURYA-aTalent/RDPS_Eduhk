@@ -19,6 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import eduhk.fhr.web.dao.ImportHistoryDAO;
 import eduhk.fhr.web.dto.import_.ImportResultSummary;
 import eduhk.fhr.web.model.ImportHistory;
+import eduhk.fhr.web.model.SystemLog;
+import eduhk.fhr.web.service.LogService;
 import eduhk.fhr.web.service.ParameterService;
 import eduhk.fhr.web.service.import_.ImportOrchestrationService;
 
@@ -46,6 +48,9 @@ public class ImportController extends BaseController {
 
     @Autowired
     private eduhk.fhr.web.dao.ImportValidationErrorDAO validationErrorDAO;
+
+    @Autowired
+    private LogService logService;
 
     /**
      * Display import dashboard page
@@ -262,21 +267,15 @@ public class ImportController extends BaseController {
         ModelAndView mv = new ModelAndView("importErrors");
 
         try {
-            // TODO: Query error logs from RDPS_SYSTEM_LOG table
-            // Example query:
-            // List<SystemLog> errors = logService.getImportErrors(days);
-            // mv.addObject("importErrors", errors);
-
+            // Query error logs from RDPS_SYSTEM_LOG table
+            List<SystemLog> errors = logService.getImportErrors(days);
+            mv.addObject("importErrors", errors);
             mv.addObject("days", days);
-            mv.addObject("message", "Error log query not yet implemented. " +
-                "Requires LogService integration to query RDPS_SYSTEM_LOG table with log_type='IMPORT_ERROR'");
-
-            // For now, show placeholder
-            mv.addObject("importErrors", new java.util.ArrayList<>());
 
         } catch (Exception e) {
             logger.error("Error retrieving import error logs", e);
             mv.addObject("errorMessage", "Error loading import errors: " + e.getMessage());
+            mv.addObject("importErrors", new java.util.ArrayList<>());
         }
 
         return mv;

@@ -14,15 +14,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import eduhk.fhr.web.config.Parameters;
+import eduhk.fhr.web.dao.SystemLogDao;
 import eduhk.fhr.web.model.LogInfo;
+import eduhk.fhr.web.model.SystemLog;
 
 
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class LogService extends BaseService {
-	
+
 	@Autowired
 	private Parameters parameters;
+
+	@Autowired
+	private SystemLogDao systemLogDao;
+
 	private static final Logger logger = LoggerFactory.getLogger(LogService.class);
 	
     public List<LogInfo> getLogs() {
@@ -48,8 +54,23 @@ public class LogService extends BaseService {
     public void writeLog(String message) {
         logger.info(message);
     }
-	
+
     public void writeErrorLog(String message) {
         logger.error(message);
+    }
+
+    /**
+     * Get import-related error logs from the last N days
+     *
+     * @param days Number of days to look back
+     * @return List of system logs related to import errors
+     */
+    public List<SystemLog> getImportErrors(int days) {
+        try {
+            return systemLogDao.getImportErrors(days);
+        } catch (Exception e) {
+            logger.error("Error fetching import errors from system log", e);
+            return new ArrayList<>();
+        }
     }
 }
