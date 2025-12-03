@@ -20,7 +20,10 @@ public class ScheduleTask{
 
 	@Autowired
 	private TalentLinkUserSyncService talentLinkUserSyncService;
-	
+
+	@Autowired
+	private eduhk.fhr.web.service.CandidateDocumentSyncService candidateDocumentSyncService;
+
 	// Schedule task using cron expression
 	@SchedulerLock(name = "RDPSTaskLock", lockAtMostFor = "5m", lockAtLeastFor = "2m")
 	@Scheduled(cron = "0 30 14,22 * * ?")
@@ -56,5 +59,33 @@ public class ScheduleTask{
 			writeErrorLog("[syncUsersToTalentLink()] Error: " + e.getMessage());
 		}
 		writeLog("[syncUsersToTalentLink()] End");
+	}
+
+	/**
+	 * Scheduled job to sync candidate documents from TalentLink to SharePoint
+	 * Runs daily at 3:00 AM
+	 * NOTE: Automatic scheduling is currently DISABLED
+	 */
+	@SchedulerLock(name = "CandidateDocumentSyncLock", lockAtMostFor = "2h", lockAtLeastFor = "5m")
+	//@Scheduled(cron = "0 0 3 * * ?")  // Daily at 3:00 AM - DISABLED
+	//@Scheduled(cron = "0 */10 * * * ?") // Run every 10 minutes for testing
+	public void syncCandidateDocuments() {
+		writeLog("=== Starting Candidate Document Sync Job ===");
+
+		try {
+			java.util.Map<String, Integer> stats = candidateDocumentSyncService.syncAllCandidateDocuments();
+
+			writeLog("[syncCandidateDocuments()] Job completed successfully");
+			writeLog("[syncCandidateDocuments()] Total candidates: " + stats.get("totalCandidates"));
+			writeLog("[syncCandidateDocuments()] Candidates processed: " + stats.get("candidatesProcessed"));
+			writeLog("[syncCandidateDocuments()] Documents synced: " + stats.get("totalSynced"));
+			writeLog("[syncCandidateDocuments()] Failed candidates: " + stats.get("totalFailed"));
+
+		} catch (Exception e) {
+			writeErrorLog("[syncCandidateDocuments()] Job failed: " + e.getMessage());
+			logger.error("Document sync job error", e);
+		}
+
+		writeLog("=== Candidate Document Sync Job Finished ===");
 	}
 }

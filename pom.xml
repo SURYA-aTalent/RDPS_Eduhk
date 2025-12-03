@@ -225,6 +225,27 @@
 			<artifactId>jakarta.jws-api</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+
+		<!-- Microsoft Graph SDK for SharePoint Integration -->
+		<dependency>
+			<groupId>com.microsoft.graph</groupId>
+			<artifactId>microsoft-graph</artifactId>
+			<version>5.80.0</version>
+		</dependency>
+
+		<!-- Azure Identity (for authentication) -->
+		<dependency>
+			<groupId>com.azure</groupId>
+			<artifactId>azure-identity</artifactId>
+			<version>1.11.4</version>
+		</dependency>
+
+		<!-- Azure HTTP client -->
+		<dependency>
+			<groupId>com.azure</groupId>
+			<artifactId>azure-core-http-netty</artifactId>
+			<version>1.13.11</version>
+		</dependency>
 	</dependencies>
 	
 	<profiles>

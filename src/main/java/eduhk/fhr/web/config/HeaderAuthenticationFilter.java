@@ -28,7 +28,10 @@ public class HeaderAuthenticationFilter extends AbstractPreAuthenticatedProcessi
 	 */
 	protected String getPreAuthenticatedPrincipal(HttpServletRequest request) {
 		String principal = request.getHeader(PRINCIPAL_REQUEST_HEADER);
-		if (request.getLocalAddr().indexOf(localIp) == 0) {
+		String localAddr = request.getLocalAddr();
+		// Check for both IPv4 (127.0.0.1) and IPv6 (0:0:0:0:0:0:0:1) localhost
+		boolean isLocalhost = localAddr.indexOf(localIp) == 0 || localAddr.startsWith("127.0.0.1");
+		if (isLocalhost) {
 			if (!StringUtils.isEmpty(localUserName)) {
 				principal = localUserName;
 //				System.out.println("!!! " + principal);

@@ -159,4 +159,14 @@ public class CandidateDAO {
             return insertCandidate(candidate);
         }
     }
+
+    /**
+     * Get all candidate IDs from the database
+     *
+     * @return List of candidate IDs
+     */
+    public java.util.List<String> getAllCandidateIds() {
+        String sql = "SELECT CANDIDATE_ID FROM RDPS.RDPS_CANDIDATE ORDER BY CANDIDATE_ID";
+        return jdbcTemplate.queryForList(sql, String.class);
+    }
 }

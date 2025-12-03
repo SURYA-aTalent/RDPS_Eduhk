@@ -47,6 +47,7 @@ public class WebSecurityConfig{
         		.requestMatchers("/log/**").hasRole("USE_RDPS")
         		.requestMatchers("/main/**").hasRole("USE_RDPS")
         		.requestMatchers("/report/**").hasRole("USE_RDPS")
+        		.requestMatchers("/sharepoint/**").hasRole("USE_RDPS")
         		.requestMatchers("/").authenticated()
         		.requestMatchers("/about").authenticated()
         		.requestMatchers("/contact").authenticated()	

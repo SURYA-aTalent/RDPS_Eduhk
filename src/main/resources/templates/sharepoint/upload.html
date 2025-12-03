@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/template}">
+
+<head>
+    <title>Upload to SharePoint</title>
+    <link rel="stylesheet" th:href="@{/css/plugins/uploaders/dropzone.min.css}">
+</head>
+
+<body>
+    <div layout:fragment="breadcrumb">
+        <a th:href="@{/}" class="breadcrumb-item nav-link">
+            <i class="icon-home2 mr-2"></i> Home
+        </a>
+        <a class="breadcrumb-item nav-link">SharePoint Upload</a>
+    </div>
+
+    <div layout:fragment="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Upload Files to SharePoint</h3>
+            </div>
+
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <strong>Allowed types:</strong> PDF, DOC, DOCX, JPG, JPEG, PNG, XLS, XLSX, TXT<br>
+                    <strong>Max size:</strong> 50 MB
+                </div>
+
+                <!-- Dropzone -->
+                <div class="dropzone" id="myDropzone">
+                    <div class="dz-message needsclick">
+                        <i class="icon-cloud-upload2" style="font-size: 48px;"></i>
+                        <h4>Drop files here or click to upload</h4>
+                        <span class="note needsclick">Max file size: 50 MB</span>
+                    </div>
+                </div>
+
+                <!-- Upload Results -->
+                <div id="uploadResults" style="margin-top: 20px; display: none;">
+                    <h5>Uploaded Files:</h5>
+                    <ul id="uploadedFilesList" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script layout:fragment="script" th:inline="javascript">
+        const csrfName = /*[[${_csrf.parameterName}]]*/ '';
+        const csrfValue = /*[[${_csrf.token}]]*/ '';
+
+        // Initialize Dropzone
+        Dropzone.autoDiscover = false;
+
+        const myDropzone = new Dropzone("#myDropzone", {
+            url: /*[[@{/sharepoint/ajax/upload}]]*/ '',
+            paramName: "file",
+            maxFilesize: 50, // MB
+            acceptedFiles: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.xls,.xlsx,.txt",
+            addRemoveLinks: true,
+            dictDefaultMessage: "Drop files here or click to upload",
+
+            init: function() {
+                this.on("sending", function(file, xhr, formData) {
+                    // Add CSRF token
+                    formData.append(csrfName, csrfValue);
+                });
+
+                this.on("success", function(file, response) {
+                    if (response.success) {
+                        toastr.success('File uploaded: ' + response.result.fileName);
+
+                        // Show SharePoint link
+                        $('#uploadResults').show();
+                        $('#uploadedFilesList').append(
+                            '<li class="list-group-item">' +
+                            '<strong>' + response.result.fileName + '</strong><br>' +
+                            '<small>SharePoint URL: <a href="' + response.result.webUrl +
+                            '" target="_blank">' + response.result.webUrl + '</a></small>' +
+                            '</li>'
+                        );
+                    } else {
+                        toastr.error(response.message || 'Upload failed');
+                    }
+                    this.removeFile(file);
+                });
+
+                this.on("error", function(file, errorMessage) {
+                    toastr.error('Upload error: ' + errorMessage);
+                    this.removeFile(file);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

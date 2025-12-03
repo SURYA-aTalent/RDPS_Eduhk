@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/template}">
+
+<head>
+    <title>Candidate Document Sync</title>
+</head>
+
+<body>
+    <div layout:fragment="breadcrumb">
+        <a th:href="@{/}" class="breadcrumb-item nav-link">
+            <i class="icon-home2 mr-2"></i> Home
+        </a>
+        <a class="breadcrumb-item nav-link">Document Sync</a>
+    </div>
+
+    <div layout:fragment="content">
+        <!-- Single Candidate Sync -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Sync Documents for Single Candidate</h3>
+            </div>
+
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <strong>Info:</strong> This will fetch all documents from TalentLink for the specified candidate
+                    and upload them to SharePoint in folder: <code>Candidate_{candidateId}</code>
+                </div>
+
+                <div class="form-group">
+                    <label for="candidateId">Candidate ID:</label>
+                    <input type="number" class="form-control" id="candidateId" placeholder="Enter candidate ID (e.g., 99)" style="max-width: 300px;">
+                </div>
+
+                <button type="button" class="btn btn-primary" id="syncCandidateBtn">
+                    <i class="icon-sync"></i> Sync Documents
+                </button>
+
+                <!-- Sync Results -->
+                <div id="syncResults" style="margin-top: 20px; display: none;">
+                    <div class="alert alert-success">
+                        <strong>Sync Completed!</strong>
+                        <div id="syncResultsContent"></div>
+                    </div>
+                </div>
+
+                <!-- Sync Error -->
+                <div id="syncError" style="margin-top: 20px; display: none;">
+                    <div class="alert alert-danger">
+                        <strong>Sync Failed!</strong>
+                        <div id="syncErrorContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulk Sync -->
+        <div class="card" style="margin-top: 20px;">
+            <div class="card-header">
+                <h3 class="card-title">Sync Documents for All Candidates</h3>
+            </div>
+
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <strong>Warning:</strong> This operation will sync documents for ALL candidates in the database.
+                    This may take a long time depending on the number of candidates.
+                </div>
+
+                <button type="button" class="btn btn-warning" id="syncAllBtn">
+                    <i class="icon-sync"></i> Sync All Candidates
+                </button>
+
+                <!-- Bulk Sync Results -->
+                <div id="bulkSyncResults" style="margin-top: 20px; display: none;">
+                    <div class="alert alert-success">
+                        <strong>Bulk Sync Completed!</strong>
+                        <div id="bulkSyncResultsContent"></div>
+                    </div>
+                </div>
+
+                <!-- Bulk Sync Error -->
+                <div id="bulkSyncError" style="margin-top: 20px; display: none;">
+                    <div class="alert alert-danger">
+                        <strong>Bulk Sync Failed!</strong>
+                        <div id="bulkSyncErrorContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script layout:fragment="script" th:inline="javascript">
+        const csrfName = /*[[${_csrf.parameterName}]]*/ '';
+        const csrfValue = /*[[${_csrf.token}]]*/ '';
+
+        // Sync single candidate
+        $('#syncCandidateBtn').click(function() {
+            const candidateId = $('#candidateId').val();
+
+            if (!candidateId) {
+                toastr.error('Please enter a candidate ID');
+                return;
+            }
+
+            // Hide previous results
+            $('#syncResults').hide();
+            $('#syncError').hide();
+
+            // Show loading
+            const btn = $(this);
+            btn.prop('disabled', true).html('<i class="icon-spinner2 spinner"></i> Syncing...');
+
+            $.ajax({
+                url: /*[[@{/document-sync/ajax/sync-candidate}]]*/ '',
+                type: 'POST',
+                data: {
+                    candidateId: candidateId,
+                    [csrfName]: csrfValue
+                },
+                success: function(response) {
+                    btn.prop('disabled', false).html('<i class="icon-sync"></i> Sync Documents');
+
+                    if (response.success) {
+                        toastr.success(response.message);
+                        $('#syncResultsContent').html(
+                            '<p>Candidate ID: <strong>' + response.result.candidateId + '</strong></p>' +
+                            '<p>Documents Synced: <strong>' + response.result.documentsSynced + '</strong></p>'
+                        );
+                        $('#syncResults').show();
+                    } else {
+                        toastr.error(response.message || 'Sync failed');
+                        $('#syncErrorContent').text(response.message);
+                        $('#syncError').show();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    btn.prop('disabled', false).html('<i class="icon-sync"></i> Sync Documents');
+                    toastr.error('Error: ' + error);
+                    $('#syncErrorContent').text(error);
+                    $('#syncError').show();
+                }
+            });
+        });
+
+        // Sync all candidates
+        $('#syncAllBtn').click(function() {
+            if (!confirm('Are you sure you want to sync documents for ALL candidates? This may take a long time.')) {
+                return;
+            }
+
+            // Hide previous results
+            $('#bulkSyncResults').hide();
+            $('#bulkSyncError').hide();
+
+            // Show loading
+            const btn = $(this);
+            btn.prop('disabled', true).html('<i class="icon-spinner2 spinner"></i> Syncing...');
+
+            $.ajax({
+                url: /*[[@{/document-sync/ajax/sync-all}]]*/ '',
+                type: 'POST',
+                data: {
+                    [csrfName]: csrfValue
+                },
+                success: function(response) {
+                    btn.prop('disabled', false).html('<i class="icon-sync"></i> Sync All Candidates');
+
+                    if (response.success) {
+                        toastr.success(response.message);
+                        $('#bulkSyncResultsContent').html(
+                            '<p>Total Candidates: <strong>' + response.result.totalCandidates + '</strong></p>' +
+                            '<p>Candidates Processed: <strong>' + response.result.candidatesProcessed + '</strong></p>' +
+                            '<p>Documents Synced: <strong>' + response.result.totalSynced + '</strong></p>' +
+                            '<p>Failed Candidates: <strong>' + response.result.totalFailed + '</strong></p>'
+                        );
+                        $('#bulkSyncResults').show();
+                    } else {
+                        toastr.error(response.message || 'Bulk sync failed');
+                        $('#bulkSyncErrorContent').text(response.message);
+                        $('#bulkSyncError').show();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    btn.prop('disabled', false).html('<i class="icon-sync"></i> Sync All Candidates');
+                    toastr.error('Error: ' + error);
+                    $('#bulkSyncErrorContent').text(error);
+                    $('#bulkSyncError').show();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
