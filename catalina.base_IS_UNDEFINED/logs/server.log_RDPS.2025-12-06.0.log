@@ -1,0 +1,547 @@
+2025-12-06 00:29:51 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m46s228ms).
+2025-12-06 00:31:16 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s880ms).
+2025-12-06 00:32:11 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s848ms).
+2025-12-06 00:33:36 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s881ms).
+2025-12-06 00:34:31 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s882ms).
+2025-12-06 00:35:56 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s894ms).
+2025-12-06 01:05:02 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m6s315ms).
+2025-12-06 01:06:27 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s883ms).
+2025-12-06 01:07:22 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s881ms).
+2025-12-06 01:08:47 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s872ms).
+2025-12-06 01:09:41 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s851ms).
+2025-12-06 01:43:45 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m33s752ms).
+2025-12-06 02:35:33 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m17s307ms).
+2025-12-06 03:26:01 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49m58s264ms).
+2025-12-06 03:43:38 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m7s116ms).
+2025-12-06 04:54:47 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h11m9s131ms).
+2025-12-06 05:13:39 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m22s340ms).
+2025-12-06 05:24:53 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m13s205ms).
+2025-12-06 05:26:17 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s862ms).
+2025-12-06 05:27:12 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s884ms).
+2025-12-06 06:17:44 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50m1s438ms).
+2025-12-06 06:19:09 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s891ms).
+2025-12-06 06:52:12 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m3s246ms).
+2025-12-06 06:56:10 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m58s543ms).
+2025-12-06 07:16:27 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m16s993ms).
+2025-12-06 07:17:52 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s886ms).
+2025-12-06 07:33:27 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m34s886ms).
+2025-12-06 07:57:09 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m41s199ms).
+2025-12-06 08:13:20 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m11s198ms).
+2025-12-06 08:31:04 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m14s172ms).
+2025-12-06 08:58:07 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m2s972ms).
+2025-12-06 09:14:03 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m55s695ms).
+2025-12-06 09:49:53 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=35m20s576ms).
+2025-12-06 09:59:09 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m46s193ms).
+2025-12-06 10:30:53 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=31m43s313ms).
+2025-12-06 10:46:48 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m55s783ms).
+2025-12-06 10:59:58 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m9s440ms).
+2025-12-06 11:16:59 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m31s534ms).
+2025-12-06 11:17:54 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s844ms).
+2025-12-06 12:00:54 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=42m30s59ms).
+2025-12-06 12:02:19 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s883ms).
+2025-12-06 12:05:35 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m16s44ms).
+2025-12-06 12:23:56 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m20s742ms).
+2025-12-06 12:30:11 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m45s234ms).
+2025-12-06 12:39:36 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m54s899ms).
+2025-12-06 12:52:35 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] Start
+2025-12-06 12:52:35 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Starting user sync to TalentLink via SOAP
+2025-12-06 12:52:35 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Found 0 unsynced users
+2025-12-06 12:52:35 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - No users to sync
+2025-12-06 12:52:35 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] - No users to sync
+2025-12-06 12:52:35 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] End
+2025-12-06 13:00:00 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] Start
+2025-12-06 13:00:00 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Starting user sync to TalentLink via SOAP
+2025-12-06 13:00:00 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Found 0 unsynced users
+2025-12-06 13:00:00 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - No users to sync
+2025-12-06 13:00:00 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] - No users to sync
+2025-12-06 13:00:00 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] End
+2025-12-06 13:02:23 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [performTask()] Start
+2025-12-06 13:02:23 [scheduling-1] ERROR o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
+org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT COALESCE(MAX(id), 0)+1 FROM test_schedule_table]
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:112)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:102)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1548)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:688)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:731)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:803)
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.queryForObject(NamedParameterJdbcTemplate.java:257)
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.queryForObject(NamedParameterJdbcTemplate.java:272)
+	at eduhk.fhr.web.dao.SchedulerDao.insertIntoTable(SchedulerDao.java:17)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:370)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at eduhk.fhr.web.dao.SchedulerDao$$SpringCGLIB$$0.insertIntoTable(<generated>)
+	at eduhk.fhr.web.service.SchedulerService.insertIntoTable(SchedulerService.java:20)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:370)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at eduhk.fhr.web.service.SchedulerService$$SpringCGLIB$$0.insertIntoTable(<generated>)
+	at eduhk.fhr.web.scheduler.ScheduleTask.performTask(ScheduleTask.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at net.javacrumbs.shedlock.core.DefaultLockingTaskExecutor.executeWithLock(DefaultLockingTaskExecutor.java:72)
+	at net.javacrumbs.shedlock.spring.aop.MethodProxyScheduledLockAdvisor$LockingInterceptor.invoke(MethodProxyScheduledLockAdvisor.java:83)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at eduhk.fhr.web.scheduler.ScheduleTask$$SpringCGLIB$$0.performTask(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:128)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$1(ScheduledMethodRunnable.java:122)
+	at io.micrometer.observation.Observation.observe(Observation.java:499)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:122)
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:88)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:94)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00942: table or view "RDPS"."TEST_SCHEDULE_TABLE" does not exist
+
+https://docs.oracle.com/error-help/db/ora-00942/
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:715)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:615)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1372)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:972)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:237)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:524)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:298)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:1257)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1424)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1298)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1855)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1631)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3973)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:4160)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1120)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$query$0(JdbcTemplate.java:737)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:669)
+	... 55 common frames omitted
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00942: table or view "RDPS"."TEST_SCHEDULE_TABLE" does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:723)
+	... 73 common frames omitted
+2025-12-06 13:23:49 [http-nio-8080-exec-6] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /api/test-sync/debug/candidate/116
+2025-12-06 13:23:49 [http-nio-8080-exec-6] WARN  o.s.web.servlet.PageNotFound - No endpoint GET /api/test-sync/debug/candidate/116.
+2025-12-06 13:23:49 [http-nio-8080-exec-6] ERROR o.s.d.IncorrectResultSizeDataAccessException - org.springframework.dao.IncorrectResultSizeDataAccessException in eduhk.fhr.web.service.ParameterService.getSsoLogoutUrl(ParameterService.java:22): Incorrect result size: expected 1, actual 2
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		Userstamp: 
+2025-12-06 13:24:58 [http-nio-8080-exec-8] ERROR o.s.d.IncorrectResultSizeDataAccessException - org.springframework.dao.IncorrectResultSizeDataAccessException in eduhk.fhr.web.service.ParameterService.getSsoLogoutUrl(ParameterService.java:22): Incorrect result size: expected 1, actual 2
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		Userstamp: 
+2025-12-06 13:24:58 [http-nio-8080-exec-8] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Fetching applications for candidate 116
+2025-12-06 13:25:00 [http-nio-8080-exec-8] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Found 1 applications for candidate 116
+2025-12-06 13:25:03 [http-nio-8080-exec-8] INFO  e.f.w.s.EducationWorkDocumentParser - Parsing document: EdUHK Education/Work Experience (ID: 445)
+2025-12-06 13:25:03 [http-nio-8080-exec-8] INFO  e.f.w.s.EducationWorkDocumentParser - Parsed document: ParsedCandidateData[education=1, workExperience=1, referees=0, hasOtherInfo=true]
+2025-12-06 13:25:07 [http-nio-8080-exec-10] ERROR o.s.d.IncorrectResultSizeDataAccessException - org.springframework.dao.IncorrectResultSizeDataAccessException in eduhk.fhr.web.service.ParameterService.getSsoLogoutUrl(ParameterService.java:22): Incorrect result size: expected 1, actual 2
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		Userstamp: 
+2025-12-06 13:25:09 [http-nio-8080-exec-10] INFO  e.f.w.s.EducationWorkDocumentParser - Parsing document: EdUHK Education/Work Experience (ID: 445)
+2025-12-06 13:25:09 [http-nio-8080-exec-10] INFO  e.f.w.s.EducationWorkDocumentParser - Parsed document: ParsedCandidateData[education=1, workExperience=1, referees=0, hasOtherInfo=true]
+2025-12-06 13:26:04 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-06 13:26:04 [Thread-1] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-06 13:26:04 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-12-06 13:26:04 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-06 13:26:04 [Thread-1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-12-06 13:26:04 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-06 13:26:04 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-06 13:26:04 [Thread-1] INFO  o.s.j.d.e.EmbeddedDatabaseFactory - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2025-12-06 16:13:23 [restartedMain] INFO  eduhk.fhr.web.config.fhrApplication - Starting fhrApplication using Java 21.0.9 with PID 98311 (/Users/praveen/Documents/projects/eduhk_rdps/target/classes started by praveen in /Users/praveen/Documents/projects/eduhk_rdps)
+2025-12-06 16:13:23 [restartedMain] INFO  eduhk.fhr.web.config.fhrApplication - The following 1 profile is active: "local"
+2025-12-06 16:13:23 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/praveen/.m2/repository/com/oracle/database/jdbc/ojdbc11/23.9.0.25.07/ojdbc11-23.9.0.25.07.jar referenced one or more files that do not exist: file:/Users/praveen/.m2/repository/com/oracle/database/jdbc/ojdbc11/23.9.0.25.07/oraclepki.jar
+2025-12-06 16:13:23 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jaxws-rt-4.0.0.jar referenced one or more files that do not exist: file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jakarta.annotation-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jakarta.activation-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jakarta.mail-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jakarta.xml.bind-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jakarta.xml.ws-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jakarta.xml.soap-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/angus-activation.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/angus-mail.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/FastInfoset.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/gmbal-api-only.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/ha-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jaxb-core.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/jaxb-impl.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/management-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/mimepull.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/saaj-impl.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/stax-ex.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/stax2-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/streambuffer.jar,file:/Users/praveen/.m2/repository/com/sun/xml/ws/jaxws-rt/4.0.0/woodstox-core.jar
+2025-12-06 16:13:23 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/ha-api-3.1.13.jar referenced one or more files that do not exist: file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/hk2.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/hk2-core.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/class-model.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/config-api.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/tiger-types.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/bean-validator.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/jtype.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/auto-depends.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/jakarta.inject-api.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/asm-all-repackaged.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/hk2-api.jar,file:/Users/praveen/.m2/repository/org/glassfish/ha/ha-api/3.1.13/osgi-resource-locator.jar
+2025-12-06 16:13:23 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/praveen/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.0/jaxb-impl-4.0.0.jar referenced one or more files that do not exist: file:/Users/praveen/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.0/jaxb-core.jar,file:/Users/praveen/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.0/angus-activation.jar
+2025-12-06 16:13:23 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/praveen/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.6/jaxb-core-4.0.6.jar referenced one or more files that do not exist: file:/Users/praveen/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.6/jakarta.activation-api.jar,file:/Users/praveen/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.6/jakarta.xml.bind-api.jar
+2025-12-06 16:13:23 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-06 16:13:23 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-06 16:13:23 [restartedMain] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'localeResolver' with a different definition: replacing [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration; factoryMethodName=localeResolver; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.class]] with [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=appConfig; factoryMethodName=localeResolver; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [eduhk/fhr/web/config/AppConfig.class]]
+2025-12-06 16:13:24 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-06 16:13:24 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-06 16:13:24 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-06 16:13:24 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-06 16:13:24 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 536 ms
+2025-12-06 16:13:24 [restartedMain] WARN  o.a.c.c.C.[Tomcat].[localhost].[/] - Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [4FED46D62E7B48C71B81DCA37BE09FDA]
+2025-12-06 16:13:24 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-06 16:13:24 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2025-12-06 16:13:24 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@6aa6d61
+2025-12-06 16:13:24 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-06 16:13:24 [restartedMain] INFO  o.s.j.d.e.EmbeddedDatabaseFactory - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2025-12-06 16:13:24 [restartedMain] INFO  e.f.w.s.TalentLinkSOAPUserService - Initializing TalentLink SOAP User Service
+2025-12-06 16:13:24 [restartedMain] INFO  e.f.w.s.h.TalentLinkSOAPHandler - SOAP credentials configured for user: EdUHK UAT:prabhu.srinivasan@atalent.com:BO
+2025-12-06 16:13:34 [restartedMain] ERROR o.s.d.IncorrectResultSizeDataAccessException - org.springframework.dao.IncorrectResultSizeDataAccessException in eduhk.fhr.web.service.ParameterService.getParameter(ParameterService.java:46): Incorrect result size: expected 1, actual 2
+		at eduhk.fhr.web.service.ParameterService.getParameterValue(ParameterService.java:55)
+		Userstamp: 
+2025-12-06 16:13:34 [restartedMain] WARN  e.f.w.s.TalentLinkSOAPUserService - TALENTLINK_USER_SOAP_URL not configured, using default: https://api3.lumesse-talenthub.com/User/SOAP/User
+2025-12-06 16:13:34 [restartedMain] INFO  e.f.w.s.TalentLinkSOAPUserService - TalentLink SOAP User Service initialized successfully
+2025-12-06 16:13:34 [restartedMain] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Initializing TalentLink SOAP Candidate Service
+2025-12-06 16:13:34 [restartedMain] INFO  e.f.w.s.h.TalentLinkSOAPHandler - SOAP credentials configured for user: EdUHK UAT:prabhu.srinivasan@atalent.com:BO
+2025-12-06 16:13:49 [restartedMain] INFO  e.f.w.s.TalentLinkSOAPCandidateService - TalentLink SOAP Candidate Service initialized successfully
+2025-12-06 16:13:49 [restartedMain] INFO  e.f.w.s.SharePointUploadService - Initializing SharePoint Upload Service
+2025-12-06 16:13:50 [restartedMain] INFO  e.f.w.s.SharePointUploadService - SharePoint Upload Service initialized successfully
+2025-12-06 16:13:50 [restartedMain] INFO  e.fhr.web.mapper.LookupValueResolver - Initializing LOV caches...
+2025-12-06 16:13:50 [restartedMain] INFO  e.fhr.web.mapper.LookupValueResolver - LOV caches initialized successfully
+2025-12-06 16:13:50 [restartedMain] INFO  e.f.w.s.TalentLinkSOAPDocumentService - Initializing TalentLink SOAP Document Service
+2025-12-06 16:13:50 [restartedMain] INFO  e.f.w.s.h.TalentLinkSOAPHandler - SOAP credentials configured for user: EdUHK UAT:prabhu.srinivasan@atalent.com:BO
+2025-12-06 16:13:53 [restartedMain] INFO  e.f.w.s.TalentLinkSOAPDocumentService - TalentLink SOAP Document Service initialized successfully
+2025-12-06 16:13:54 [restartedMain] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2025-12-06 16:13:54 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name preauthProvider
+2025-12-06 16:13:54 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-12-06 16:13:54 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore PathPattern [/public/**]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-12-06 16:13:54 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore PathPattern [/js/**]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-12-06 16:13:54 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore PathPattern [/css/**]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-12-06 16:13:54 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore PathPattern [/images/**]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-12-06 16:13:54 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore PathPattern [/fonts/**]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-12-06 16:13:54 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-06 16:13:54 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-06 16:13:54 [restartedMain] INFO  eduhk.fhr.web.config.fhrApplication - Started fhrApplication in 31.14 seconds (process running for 31.371)
+2025-12-06 16:13:56 [Thread-6] INFO  e.f.web.test.DocumentSyncStartupTest - === AUTO-TESTING DOCUMENT SYNC FOR CANDIDATE 99 ===
+2025-12-06 16:13:56 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Starting document sync for candidate 99
+2025-12-06 16:13:56 [Thread-6] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Fetching applications for candidate 99
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Found 1 applications for candidate 99
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Found 14 total documents for candidate 99
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Found 14 documents for candidate 99
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 348: name='Interview Confirmation to Candidates for Chinese Professor (Mock Demo)', type='MAIL', objectType='MAIL'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 348 is not a file attachment (type: MAIL), skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 349: name='Interview arrangement with Chan One (Mock Demo)– Chinese Professor (Mock Demo)', type='MAIL', objectType='MAIL'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 349 is not a file attachment (type: MAIL), skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 352: name='Spouse_ID_Card.jpg', type='RESUME', objectType='ATTACHEDFILE'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 352 already synced, skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 353: name='Personal_Photo.jpg', type='RESUME', objectType='ATTACHEDFILE'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 353 already synced, skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 354: name='Marital_Certificate.jpg', type='RESUME', objectType='ATTACHEDFILE'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 354 already synced, skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 355: name='Bank_Card.jpg', type='RESUME', objectType='ATTACHEDFILE'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 355 already synced, skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 356: name='Birth_Certificate.jpg', type='RESUME', objectType='ATTACHEDFILE'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 356 already synced, skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 357: name='Declined: Interview arrangement with Chan One (Mock Demo)– Chinese Professor (Mock Demo)', type='TRACKED-MAIL', objectType='TRACKED_MAIL'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 357 is not a file attachment (type: TRACKED_MAIL), skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 350: name='Request for Additional Information for Onboarding', type='MAIL', objectType='MAIL'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 350 is not a file attachment (type: MAIL), skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 343: name='EdUHK Education/Work Experience', type='Q', objectType='STRUCTURED'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 343 is not a file attachment (type: STRUCTURED), skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 345: name='EdUHK Standard PIF', type='FO-PIF', objectType='STRUCTURED'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 345 is not a file attachment (type: STRUCTURED), skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 346: name='EdUHK Declaration', type='Q', objectType='STRUCTURED'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 346 is not a file attachment (type: STRUCTURED), skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 347: name='CV_Sample.docx', type='RESUME', objectType='ATTACHEDFILE'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 347 already synced, skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 351: name='EdUHK Onboarding Data Submission Questionnaire', type='Q', objectType='STRUCTURED'
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document 351 is not a file attachment (type: STRUCTURED), skipping
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.w.s.CandidateDocumentSyncService - Document sync completed for candidate 99. Synced: 0/14
+2025-12-06 16:13:57 [Thread-6] INFO  e.f.web.test.DocumentSyncStartupTest - === SYNC TEST COMPLETED. Documents synced: 0 ===
+2025-12-06 16:14:49 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-06 16:14:49 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-06 16:14:49 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-12-06 16:14:49 [http-nio-8080-exec-1] ERROR o.s.d.IncorrectResultSizeDataAccessException - org.springframework.dao.IncorrectResultSizeDataAccessException in eduhk.fhr.web.service.ParameterService.getSsoLogoutUrl(ParameterService.java:22): Incorrect result size: expected 1, actual 2
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		Userstamp: 
+2025-12-06 16:14:49 [http-nio-8080-exec-1] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Fetching candidate 117 via SOAP
+2025-12-06 16:14:54 [http-nio-8080-exec-1] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Successfully retrieved candidate 117 via SOAP
+2025-12-06 16:14:54 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Importing candidate: 117
+2025-12-06 16:14:54 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Fetching PIF data for candidate 117
+2025-12-06 16:14:54 [http-nio-8080-exec-1] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Fetching applications for candidate 117
+2025-12-06 16:14:57 [http-nio-8080-exec-1] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Found 1 applications for candidate 117
+2025-12-06 16:14:57 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Found 1 applications for candidate 117 (checking for PIF)
+2025-12-06 16:14:57 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Checking application 123 for PIF document
+2025-12-06 16:14:58 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Found 3 documents for application 123 (checking for PIF)
+2025-12-06 16:14:58 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - findStandardPIFDocumentId called with 3 documents
+2025-12-06 16:14:58 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Document object type (PIF): com.sun.org.apache.xerces.internal.dom.ElementNSImpl
+2025-12-06 16:14:58 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Examining document (PIF): ID=455, objectType=STRUCTURED, name=EdUHK Education/Work Experience
+2025-12-06 16:14:58 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Document object type (PIF): com.sun.org.apache.xerces.internal.dom.ElementNSImpl
+2025-12-06 16:14:58 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Examining document (PIF): ID=457, objectType=STRUCTURED, name=EdUHK Standard PIF
+2025-12-06 16:14:58 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Found matching PIF document: EdUHK Standard PIF (ID: 457)
+2025-12-06 16:14:58 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Found Standard PIF document 457 for candidate 117
+2025-12-06 16:15:05 [http-nio-8080-exec-1] INFO  e.f.w.s.StandardPIFDocumentParser - Parsing PIF document: EdUHK Standard PIF (ID: 457)
+2025-12-06 16:15:05 [http-nio-8080-exec-1] INFO  e.f.w.s.StandardPIFDocumentParser - Parsed PIF document successfully: TalentLinkPIFDTO{title='Mrs', lastName='G', firstName='Abimanyu', chineseName='阿比曼纽', dateOfBirth=Fri Jun 08 00:00:00 IST 2001, permanentResident='null', gender='M', nationality='India', maritalStatus='null', email='null'}
+2025-12-06 16:15:05 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Enriched candidate 117 with PIF data: TalentLinkPIFDTO{title='Mrs', lastName='G', firstName='Abimanyu', chineseName='阿比曼纽', dateOfBirth=Fri Jun 08 00:00:00 IST 2001, permanentResident='null', gender='M', nationality='India', maritalStatus='null', email='null'}
+2025-12-06 16:15:05 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Fetching education/work data for candidate 117
+2025-12-06 16:15:05 [http-nio-8080-exec-1] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Fetching applications for candidate 117
+2025-12-06 16:15:13 [http-nio-8080-exec-1] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Found 1 applications for candidate 117
+2025-12-06 16:15:13 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Found 1 applications for candidate 117
+2025-12-06 16:15:13 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Checking application 123 for documents
+2025-12-06 16:15:17 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Found 3 documents for application 123
+2025-12-06 16:15:17 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - findEducationWorkDocumentId called with 3 documents
+2025-12-06 16:15:17 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Document object type: com.sun.org.apache.xerces.internal.dom.ElementNSImpl
+2025-12-06 16:15:17 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Examining document: ID=455, objectType=STRUCTURED, name=EdUHK Education/Work Experience
+2025-12-06 16:15:17 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Found matching document: EdUHK Education/Work Experience (ID: 455)
+2025-12-06 16:15:17 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Found Education/Work document 455 for candidate 117
+2025-12-06 16:16:59 [http-nio-8080-exec-3] ERROR o.s.d.IncorrectResultSizeDataAccessException - org.springframework.dao.IncorrectResultSizeDataAccessException in eduhk.fhr.web.service.ParameterService.getSsoLogoutUrl(ParameterService.java:22): Incorrect result size: expected 1, actual 2
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		Userstamp: 
+2025-12-06 16:16:59 [http-nio-8080-exec-3] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Fetching candidate 116 via SOAP
+2025-12-06 16:17:02 [http-nio-8080-exec-3] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Successfully retrieved candidate 116 via SOAP
+2025-12-06 16:17:02 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Importing candidate: 116
+2025-12-06 16:17:02 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Fetching PIF data for candidate 116
+2025-12-06 16:17:02 [http-nio-8080-exec-3] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Fetching applications for candidate 116
+2025-12-06 16:17:03 [http-nio-8080-exec-3] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Found 1 applications for candidate 116
+2025-12-06 16:17:03 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Found 1 applications for candidate 116 (checking for PIF)
+2025-12-06 16:17:03 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Checking application 122 for PIF document
+2025-12-06 16:17:04 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Found 3 documents for application 122 (checking for PIF)
+2025-12-06 16:17:04 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - findStandardPIFDocumentId called with 3 documents
+2025-12-06 16:17:04 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Document object type (PIF): com.sun.org.apache.xerces.internal.dom.ElementNSImpl
+2025-12-06 16:17:04 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Examining document (PIF): ID=445, objectType=STRUCTURED, name=EdUHK Education/Work Experience
+2025-12-06 16:17:04 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Document object type (PIF): com.sun.org.apache.xerces.internal.dom.ElementNSImpl
+2025-12-06 16:17:04 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Examining document (PIF): ID=447, objectType=STRUCTURED, name=EdUHK Standard PIF
+2025-12-06 16:17:04 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Found matching PIF document: EdUHK Standard PIF (ID: 447)
+2025-12-06 16:17:04 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Found Standard PIF document 447 for candidate 116
+2025-12-06 16:17:04 [http-nio-8080-exec-1] INFO  e.f.w.s.EducationWorkDocumentParser - Parsing document: EdUHK Education/Work Experience (ID: 455)
+2025-12-06 16:17:04 [http-nio-8080-exec-1] INFO  e.f.w.s.EducationWorkDocumentParser - Parsed document: ParsedCandidateData[education=2, workExperience=2, referees=1, hasOtherInfo=true]
+2025-12-06 16:17:04 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Enriched candidate 117 with 2 education, 2 work, 1 referees
+2025-12-06 16:17:04 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Work experience check: 2 records
+2025-12-06 16:17:04 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Calling workExperienceImportService for 2 work records
+2025-12-06 16:17:04 [http-nio-8080-exec-1] INFO  e.f.w.s.i.WorkExperienceImportService - Importing work experience for candidate: 117
+2025-12-06 16:17:05 [http-nio-8080-exec-1] INFO  e.f.w.s.i.WorkExperienceImportService - Imported 2 work experience records for candidate: 117
+2025-12-06 16:17:05 [http-nio-8080-exec-1] INFO  e.f.w.s.i.WorkExperienceImportService - Completed work experience import for candidate: 117
+2025-12-06 16:17:05 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Education check: 2 records
+2025-12-06 16:17:05 [http-nio-8080-exec-1] INFO  e.f.w.s.i.CandidateImportService - Calling educationImportService for 2 education records
+2025-12-06 16:17:05 [http-nio-8080-exec-1] INFO  e.f.w.s.i.EducationImportService - Importing education for candidate: 117
+2025-12-06 16:17:05 [http-nio-8080-exec-1] INFO  e.fhr.web.mapper.LookupValueResolver - resolveEducationLevel: Looking up 'Did not complete secondary school' (lowercase: 'did not complete secondary school')
+2025-12-06 16:17:05 [http-nio-8080-exec-1] INFO  e.fhr.web.mapper.LookupValueResolver - resolveEducationLevel: Cache has 18 entries
+2025-12-06 16:17:05 [http-nio-8080-exec-1] WARN  e.fhr.web.mapper.LookupValueResolver - Education level not found in cache: 'Did not complete secondary school'. Available values: [postgraduate certificate, other, master degree, postgraduate diploma, certificate, doctoral degree (phd), primary education, bachelor degree, associate degree, postgrade diploma, secondary education (form 1-5), professional qualification, advanced or honors diploma, higher diploma, teacher's certificate, diploma, secondary education (form 6-7), others - professional (e.g. acca, hkis, etc)]
+2025-12-06 16:17:05 [http-nio-8080-exec-1] WARN  e.fhr.web.mapper.LookupValueResolver - Qual award desc not found in cache: SSLC, using default value 99 (Other)
+2025-12-06 16:17:05 [http-nio-8080-exec-1] ERROR e.f.w.s.i.CandidateImportService - Error importing candidate: 117
+org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [INSERT INTO RDPS.RDPS_EDU_PROF_QUAL (CANDIDATE_ID, REQ_NUMBER, SEQ, INSTITUTION, COUNTRY, EDU_LEVEL, STUDY_MODE, QUAL_AWARD_DESC, QUAL_AWARD_CLASS, OTHERS, MAJOR_STUDY_AREA, START_DATE, DATE_OF_AWARD, CREATED_BY, CREATION_DATE, USERSTAMP, TIMESTAMP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?, SYSDATE)]; ORA-01400: cannot insert NULL into ("RDPS"."RDPS_EDU_PROF_QUAL"."EDU_LEVEL")
+
+https://docs.oracle.com/error-help/db/ora-01400/
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:106)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:102)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1548)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:688)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:965)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1009)
+	at eduhk.fhr.web.dao.EducationDAO.insertEducation(EducationDAO.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at eduhk.fhr.web.dao.EducationDAO$$SpringCGLIB$$0.insertEducation(<generated>)
+	at eduhk.fhr.web.service.import_.EducationImportService.importEducation(EducationImportService.java:52)
+	at eduhk.fhr.web.service.import_.CandidateImportService.importCandidate(CandidateImportService.java:145)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:370)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at eduhk.fhr.web.service.import_.CandidateImportService$$SpringCGLIB$$0.importCandidate(<generated>)
+	at eduhk.fhr.web.controller.TestSyncController.syncCandidateById(TestSyncController.java:178)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:235)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:371)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter.doFilter(AbstractPreAuthenticatedProcessingFilter.java:163)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:118)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("RDPS"."RDPS_EDU_PROF_QUAL"."EDU_LEVEL")
+
+https://docs.oracle.com/error-help/db/ora-01400/
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:715)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:615)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1372)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:972)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:237)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:524)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:298)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1510)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:2020)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1633)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3973)
+	at oracle.jdbc.driver.OraclePreparedStatement.doExecuteLargeUpdate(OraclePreparedStatement.java:4339)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4316)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4291)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1007)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$0(JdbcTemplate.java:970)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:669)
+	... 107 common frames omitted
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-01400: cannot insert NULL into ("RDPS"."RDPS_EDU_PROF_QUAL"."EDU_LEVEL")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:723)
+	... 125 common frames omitted
+2025-12-06 16:17:06 [http-nio-8080-exec-3] INFO  e.f.w.s.StandardPIFDocumentParser - Parsing PIF document: EdUHK Standard PIF (ID: 447)
+2025-12-06 16:17:06 [http-nio-8080-exec-3] INFO  e.f.w.s.StandardPIFDocumentParser - Parsed PIF document successfully: TalentLinkPIFDTO{title='Mr', lastName='B', firstName='Praveen', chineseName='chinese name test', dateOfBirth=Sun May 04 00:00:00 IST 2014, permanentResident='null', gender='M', nationality='India', maritalStatus='null', email='null'}
+2025-12-06 16:17:06 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Enriched candidate 116 with PIF data: TalentLinkPIFDTO{title='Mr', lastName='B', firstName='Praveen', chineseName='chinese name test', dateOfBirth=Sun May 04 00:00:00 IST 2014, permanentResident='null', gender='M', nationality='India', maritalStatus='null', email='null'}
+2025-12-06 16:17:06 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Fetching education/work data for candidate 116
+2025-12-06 16:17:06 [http-nio-8080-exec-3] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Fetching applications for candidate 116
+2025-12-06 16:17:07 [http-nio-8080-exec-3] INFO  e.f.w.s.TalentLinkSOAPCandidateService - Found 1 applications for candidate 116
+2025-12-06 16:17:07 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Found 1 applications for candidate 116
+2025-12-06 16:17:07 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Checking application 122 for documents
+2025-12-06 16:17:08 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Found 3 documents for application 122
+2025-12-06 16:17:08 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - findEducationWorkDocumentId called with 3 documents
+2025-12-06 16:17:08 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Document object type: com.sun.org.apache.xerces.internal.dom.ElementNSImpl
+2025-12-06 16:17:08 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Examining document: ID=445, objectType=STRUCTURED, name=EdUHK Education/Work Experience
+2025-12-06 16:17:08 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Found matching document: EdUHK Education/Work Experience (ID: 445)
+2025-12-06 16:17:08 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Found Education/Work document 445 for candidate 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.EducationWorkDocumentParser - Parsing document: EdUHK Education/Work Experience (ID: 445)
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.EducationWorkDocumentParser - Parsed document: ParsedCandidateData[education=1, workExperience=1, referees=2, hasOtherInfo=true]
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Enriched candidate 116 with 1 education, 1 work, 2 referees
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Work experience check: 1 records
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Calling workExperienceImportService for 1 work records
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.WorkExperienceImportService - Importing work experience for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.WorkExperienceImportService - Imported 1 work experience records for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.WorkExperienceImportService - Completed work experience import for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Education check: 1 records
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Calling educationImportService for 1 education records
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.EducationImportService - Importing education for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.fhr.web.mapper.LookupValueResolver - resolveEducationLevel: Looking up 'Advanced or honors diploma' (lowercase: 'advanced or honors diploma')
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.fhr.web.mapper.LookupValueResolver - resolveEducationLevel: Cache has 18 entries
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.fhr.web.mapper.LookupValueResolver - resolveEducationLevel: Found key 20 for 'Advanced or honors diploma'
+2025-12-06 16:17:16 [http-nio-8080-exec-3] WARN  e.fhr.web.mapper.LookupValueResolver - Qual award desc not found in cache: BE, using default value 99 (Other)
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.EducationImportService - Imported 1 education records for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.EducationImportService - Completed education import for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Referees check: 2 records
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Calling refereeImportService for 2 referee records
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.import_.RefereeImportService - Importing referees for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.import_.RefereeImportService - Imported 2 referee records for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.import_.RefereeImportService - Completed referee import for candidate: 116
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Other info check: present
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Calling otherInfoImportService
+2025-12-06 16:17:16 [http-nio-8080-exec-3] INFO  e.f.w.s.i.CandidateImportService - Successfully imported candidate: 116
+2025-12-06 16:41:55 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m30s818ms).
+2025-12-06 16:57:56 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m31s77ms).
+2025-12-06 16:58:51 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s892ms).
+2025-12-06 17:00:16 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s872ms).
+2025-12-06 17:15:48 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m32s57ms).
+2025-12-06 17:17:13 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s891ms).
+2025-12-06 17:18:08 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s874ms).
+2025-12-06 17:19:32 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s856ms).
+2025-12-06 17:36:30 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m55s567ms).
+2025-12-06 17:38:16 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m16s31ms).
+2025-12-06 18:27:40 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49m23s968ms).
+2025-12-06 18:52:49 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m39s725ms).
+2025-12-06 19:16:25 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] Start
+2025-12-06 19:16:25 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Starting user sync to TalentLink via SOAP
+2025-12-06 19:16:25 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Found 0 unsynced users
+2025-12-06 19:16:25 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - No users to sync
+2025-12-06 19:16:25 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] - No users to sync
+2025-12-06 19:16:25 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] End
+2025-12-06 19:31:45 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s905ms).
+2025-12-06 20:05:56 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m41s134ms).
+2025-12-06 20:27:46 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m50s59ms).
+2025-12-06 20:59:04 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m48s180ms).
+2025-12-06 21:37:17 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=37m42s953ms).
+2025-12-06 22:02:27 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] Start
+2025-12-06 22:02:27 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Starting user sync to TalentLink via SOAP
+2025-12-06 22:02:27 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Found 0 unsynced users
+2025-12-06 22:02:27 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - No users to sync
+2025-12-06 22:02:27 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] - No users to sync
+2025-12-06 22:02:27 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] End
+2025-12-06 23:00:00 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] Start
+2025-12-06 23:00:00 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Starting user sync to TalentLink via SOAP
+2025-12-06 23:00:00 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - Found 0 unsynced users
+2025-12-06 23:00:00 [scheduling-1] INFO  e.f.w.s.TalentLinkUserSyncService - No users to sync
+2025-12-06 23:00:00 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] - No users to sync
+2025-12-06 23:00:00 [scheduling-1] INFO  e.fhr.web.scheduler.ScheduleTask - [syncUsersToTalentLink()] End
+2025-12-06 23:23:43 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s852ms).
+2025-12-06 23:25:06 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s173ms).
+2025-12-06 23:26:01 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s896ms).
+2025-12-06 23:27:26 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s877ms).
+2025-12-06 23:44:50 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m24s357ms).

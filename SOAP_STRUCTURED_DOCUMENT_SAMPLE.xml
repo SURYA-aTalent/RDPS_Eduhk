@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sample SOAP API Response for StructuredDocument
+
+  This shows the actual XML structure returned by TalentLink getStructuredDocumentById API
+  Document ID: 445
+  Document Name: "EdUHK Education/Work Experience"
+
+  Key Structure:
+  - StructuredDocument (root)
+    - id, name, objectType
+    - answers (GfDocument)
+      - answer (repeating, top-level questions)
+        - assignedQuestion
+          - unlocalValue (question text)
+        - freeText (answer value for text fields)
+        - selectedOptions (answer value for dropdowns/checkboxes)
+          - selectedOption
+            - assignedOption
+              - unlocalValue (selected option text)
+        - dateAnswer (answer value for date fields)
+        - children (nested answers - repeating sections or sub-questions)
+          - answer (recursive structure)
+-->
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:getStructuredDocumentByIdResponse xmlns:ns2="http://ws.mrted.com/">
+      <return>
+        <!-- Document metadata -->
+        <id>445</id>
+        <name>EdUHK Education/Work Experience</name>
+        <objectType>STRUCTURED</objectType>
+        <status>COMPLETED</status>
+
+        <!-- Answers container (GfDocument) -->
+        <answers>
+
+          <!-- TOP-LEVEL ANSWER: Expected Salary -->
+          <answer>
+            <assignedQuestion>
+              <id>12345</id>
+              <unlocalValue>Expected Salary</unlocalValue>
+            </assignedQuestion>
+            <freeText>300</freeText>
+            <isCandidateAnswer>true</isCandidateAnswer>
+            <children/>  <!-- No children, simple field -->
+          </answer>
+
+          <!-- TOP-LEVEL ANSWER: Education History (REPEATING SECTION) -->
+          <answer>
+            <assignedQuestion>
+              <id>23001</id>
+              <unlocalValue>Education History</unlocalValue>
+            </assignedQuestion>
+            <freeText></freeText>
+            <isCandidateAnswer>true</isCandidateAnswer>
+
+            <!-- CHILDREN: Each child = one education record -->
+            <children>
+
+              <!-- EDUCATION RECORD 1 -->
+              <answer>
+                <assignedQuestion>
+                  <id>23002</id>
+                  <unlocalValue>School or Institution</unlocalValue>
+                </assignedQuestion>
+                <freeText></freeText>
+                <children>
+
+                  <!-- School Name -->
+                  <answer>
+                    <assignedQuestion>
+                      <id>23003</id>
+                      <unlocalValue>School Name</unlocalValue>
+                    </assignedQuestion>
+                    <freeText>DBTR School</freeText>
+                    <isCandidateAnswer>true</isCandidateAnswer>
+                    <children/>
+                  </answer>
+
+                  <!-- Sub-School / Department -->
+                  <answer>
+                    <assignedQuestion>
+                      <id>23004</id>
+                      <unlocalValue>Sub-School / Department</unlocalValue>
+                    </assignedQuestion>
+                    <freeText>india</freeText>
+                    <isCandidateAnswer>true</isCandidateAnswer>
+                    <children/>
+                  </answer>
+
+                  <!-- Degree (NESTED CONTAINER) -->
+                  <answer>
+                    <assignedQuestion>
+                      <id>23010</id>
+                      <unlocalValue>Degree</unlocalValue>
+                    </assignedQuestion>
+                    <freeText></freeText>
+                    <children>
+
+                      <!-- Degree Name -->
+                      <answer>
+                        <assignedQuestion>
+                          <id>23011</id>
+                          <unlocalValue>Degree Name</unlocalValue>
+                        </assignedQuestion>
+                        <freeText>BE</freeText>
+                        <isCandidateAnswer>true</isCandidateAnswer>
+                        <children/>
+                      </answer>
+
+                      <!-- Degree Type (SELECTED OPTION) -->
+                      <answer>
+                        <assignedQuestion>
+                          <id>23012</id>
+                          <unlocalValue>Degree Type</unlocalValue>
+                        </assignedQuestion>
+                        <freeText></freeText>
+                        <selectedOptions>
+                          <selectedOption>
+                            <assignedOption>
+                              <id>5001</id>
+                              <unlocalValue>Advanced or honors diploma</unlocalValue>
+                            </assignedOption>
+                          </selectedOption>
+                        </selectedOptions>
+                        <isCandidateAnswer>true</isCandidateAnswer>
+                        <children/>
+                      </answer>
+
+                      <!-- Degree Date (DATE ANSWER) -->
+                      <answer>
+                        <assignedQuestion>
+                          <id>23013</id>
+                          <unlocalValue>Degree Date</unlocalValue>
+                        </assignedQuestion>
+                        <freeText>04/04/2016</freeText>
+                        <dateAnswer>2016-04-04T00:00:00+08:00</dateAnswer>
+                        <isCandidateAnswer>true</isCandidateAnswer>
+                        <children/>
+                      </answer>
+
+                      <!-- Currently attending (SELECTED OPTION) -->
+                      <answer>
+                        <assignedQuestion>
+                          <id>23014</id>
+                          <unlocalValue>Currently attending</unlocalValue>
+                        </assignedQuestion>
+                        <freeText></freeText>
+                        <selectedOptions>
+                          <selectedOption>
+                            <assignedOption>
+                              <id>5101</id>
+                              <unlocalValue>Yes</unlocalValue>
+                            </assignedOption>
+                          </selectedOption>
+                        </selectedOptions>
+                        <isCandidateAnswer>true</isCandidateAnswer>
+                        <children/>
+                      </answer>
+
+                    </children>
+                  </answer>
+
+                </children>
+              </answer>
+
+              <!-- If there were multiple education records, they would appear here as additional <answer> siblings -->
+
+            </children>
+          </answer>
+
+          <!-- TOP-LEVEL ANSWER: Employment History (REPEATING SECTION) -->
+          <answer>
+            <assignedQuestion>
+              <id>38001</id>
+              <unlocalValue>Employment History</unlocalValue>
+            </assignedQuestion>
+            <freeText></freeText>
+            <isCandidateAnswer>true</isCandidateAnswer>
+
+            <!-- CHILDREN: Each child = one work experience record -->
+            <children>
+
+              <!-- WORK RECORD 1 -->
+              <answer>
+                <assignedQuestion>
+                  <id>38002</id>
+                  <unlocalValue>Employer Organization</unlocalValue>
+                </assignedQuestion>
+                <freeText></freeText>
+                <children>
+
+                  <!-- Employer Organization Name -->
+                  <answer>
+                    <assignedQuestion>
+                      <id>38003</id>
+                      <unlocalValue>Employer Organization Name</unlocalValue>
+                    </assignedQuestion>
+                    <freeText>test company</freeText>
+                    <isCandidateAnswer>true</isCandidateAnswer>
+                    <children/>
+                  </answer>
+
+                  <!-- Employer Organization Type (SELECTED OPTION) -->
+                  <answer>
+                    <assignedQuestion>
+                      <id>38004</id>
+                      <unlocalValue>Employer Organization Type</unlocalValue>
+                    </assignedQuestion>
+                    <freeText></freeText>
+                    <selectedOptions>
+                      <selectedOption>
+                        <assignedOption>
+                          <id>6001</id>
+                          <unlocalValue>Sole Employer</unlocalValue>
+                        </assignedOption>
+                      </selectedOption>
+                    </selectedOptions>
+                    <isCandidateAnswer>true</isCandidateAnswer>
+                    <children/>
+                  </answer>
+
+                  <!-- Location (NESTED CONTAINER) -->
+                  <answer>
+                    <assignedQuestion>
+                      <id>38020</id>
+                      <unlocalValue>Location</unlocalValue>
+                    </assignedQuestion>
+                    <freeText></freeText>
+                    <children>
+
+                      <!-- City -->
+                      <answer>
+                        <assignedQuestion>
+                          <id>38021</id>
+                          <unlocalValue>City</unlocalValue>
+                        </assignedQuestion>
+                        <freeText>mayiladuthurai</freeText>
+                        <isCandidateAnswer>true</isCandidateAnswer>
+                        <children/>
+                      </answer>
+
+                      <!-- Region -->
+                      <answer>
+                        <assignedQuestion>
+                          <id>38022</id>
+                          <unlocalValue>Region</unlocalValue>
+                        </assignedQuestion>
+                        <freeText>south</freeText>
+                        <isCandidateAnswer>true</isCandidateAnswer>
+                        <children/>
+                      </answer>
+
+                      <!-- Country -->
+                      <answer>
+                        <assignedQuestion>
+                          <id>38023</id>
+                          <unlocalValue>Country</unlocalValue>
+                        </assignedQuestion>
+                        <freeText>India</freeText>
+                        <isCandidateAnswer>true</isCandidateAnswer>
+                        <children/>
+                      </answer>
+
+                    </children>
+                  </answer>
+
+                  <!-- Start Date -->
+                  <answer>
+                    <assignedQuestion>
+                      <id>38030</id>
+                      <unlocalValue>From</unlocalValue>
+                    </assignedQuestion>
+                    <freeText>03/03/2019</freeText>
+                    <dateAnswer>2019-03-03T00:00:00+08:00</dateAnswer>
+                    <isCandidateAnswer>true</isCandidateAnswer>
+                    <children/>
+                  </answer>
+
+                </children>
+              </answer>
+
+            </children>
+          </answer>
+
+          <!-- TOP-LEVEL ANSWER: Referees -->
+          <answer>
+            <assignedQuestion>
+              <id>50001</id>
+              <unlocalValue>Referees</unlocalValue>
+            </assignedQuestion>
+            <freeText></freeText>
+            <isCandidateAnswer>true</isCandidateAnswer>
+            <children/>  <!-- In this document, referee data is flat, not nested -->
+          </answer>
+
+          <!-- Individual referee fields appear as top-level answers -->
+          <answer>
+            <assignedQuestion>
+              <id>50010</id>
+              <unlocalValue>Referee 1: Name</unlocalValue>
+            </assignedQuestion>
+            <freeText>ref name</freeText>
+            <isCandidateAnswer>true</isCandidateAnswer>
+            <children/>
+          </answer>
+
+          <answer>
+            <assignedQuestion>
+              <id>50011</id>
+              <unlocalValue>Referee 1:Organization/Company</unlocalValue>
+            </assignedQuestion>
+            <freeText>ref company</freeText>
+            <isCandidateAnswer>true</isCandidateAnswer>
+            <children/>
+          </answer>
+
+          <answer>
+            <assignedQuestion>
+              <id>50012</id>
+              <unlocalValue>Referee 1: Position</unlocalValue>
+            </assignedQuestion>
+            <freeText>ref position</freeText>
+            <isCandidateAnswer>true</isCandidateAnswer>
+            <children/>
+          </answer>
+
+        </answers>
+      </return>
+    </ns2:getStructuredDocumentByIdResponse>
+  </soap:Body>
+</soap:Envelope>

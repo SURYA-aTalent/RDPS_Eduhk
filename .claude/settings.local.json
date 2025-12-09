@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn clean package:*)",
+      "Bash(cat:*)",
+      "Bash(xattr:*)",
+      "Bash(/Users/praveen/Documents/apache-tomcat-9.0.112/bin/startup.sh:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(mvn clean compile:*)",
+      "Bash(docker exec oracle-db-free bash -c \"echo \"\"SELECT COUNT(*) AS education_count FROM RDPS_EDU_PROF_QUAL WHERE candidate_id = 116;\"\" | sqlplus -s RDPS/rdps_password123@FREEPDB1\")",
+      "Bash(docker exec oracle-db-free bash -c \"echo \"\"DESC RDPS_LOV_STUDY_MODE;\"\" | sqlplus -s RDPS/rdps_password123@FREEPDB1\")",
+      "Bash(docker exec oracle-db-free bash -c \"echo \"\"SELECT STUDY_MODE_KEY, STUDY_MODE_VALUE FROM RDPS_LOV_STUDY_MODE ORDER BY STUDY_MODE_KEY;\"\" | sqlplus -s RDPS/rdps_password123@FREEPDB1\")",
+      "Bash(docker exec:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
